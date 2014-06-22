@@ -23,6 +23,9 @@ gem 'unicorn'
 gem 'slim'
 gem 'slim-rails'
 gem 'brakeman'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'foreman'
