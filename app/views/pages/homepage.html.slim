@@ -7,4 +7,5 @@ section#header.dark
     h1
       .logo
   footer
-    =link_to "Sign in", new_user_session_path, { class: "button scrolly"}
+    / =link_to "Sign in", new_user_session_path, { class: "button scrolly"}
+    =link_to "Sign in with Facebook", user_omniauth_authorize_path(provider: "facebook"), { id: "sign_in" }
