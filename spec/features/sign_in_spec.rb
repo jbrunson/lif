@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 feature 'Sign in as a user' do
+  let!(:user) { FactoryGirl.create(:user, 
+                email: "me@example.com", 
+                password: "password", 
+                password_confirmation: "password") } 
+
   scenario 'with a valid username and password' do
     visit root_path
 
@@ -16,6 +21,10 @@ feature 'Sign in as a user' do
 end
 
 feature 'A user cannot sign in ' do
+let!(:user) { FactoryGirl.create(:user, 
+                email: "me@example.com", 
+                password: "password", 
+                password_confirmation: "password") } 
 
   scenario  'without a valid password' do
     visit root_path
