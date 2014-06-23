@@ -27,6 +27,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+
 group :development do
   gem 'foreman'
   gem 'spring'
@@ -39,6 +40,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 2.14.0'
+  gem 'faker'
 end
 
 group :test do
