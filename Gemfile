@@ -26,6 +26,8 @@ gem 'brakeman'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 
 
 group :development do
