@@ -1,7 +1,10 @@
-=simple_form_for @activity do |f|
-  =f.input_field :arrival_date
-  =f.input_field :departure_date
-  =f.label :location
-  =f.input_field :location
-  =f.button :submit
-end
+
+.container.padding-top-7
+  .row
+    .col-md-8
+      =simple_form_for @activity do |f|
+        =f.input_field :arrival_date
+        =f.input_field :departure_date
+        =f.input :location
+        =f.button :submit
+      end
