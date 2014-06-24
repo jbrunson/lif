@@ -1,0 +1,5 @@
+table
+ tbody
+  - @activities.each do |activity|
+    tr
+      td = link_to activity.location, activity_path(activity.id)

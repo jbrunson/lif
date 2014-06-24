@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  has_many :activities
+  
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
 
@@ -8,6 +11,7 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
@@ -36,6 +40,7 @@ class User < ActiveRecord::Base
           name: auth.extra.raw_info.name,
           gender: auth.extra.raw_info.gender,
           #username: auth.info.nickname || auth.uid,
+          gender: auth.extra.raw_info.gender,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
         )
