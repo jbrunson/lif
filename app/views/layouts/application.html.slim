@@ -18,10 +18,9 @@ html
 
   body.no-js
     #page-wrapper
-      header role="banner"
+      header role="banner"  
+        = render 'application/main_navigation'
         = render 'application/flashes'
-        nav
-          /= render partial: 'shared/main_navigation'
 
       #main role="main" 
         = yield
