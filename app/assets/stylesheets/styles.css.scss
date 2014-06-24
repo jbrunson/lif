@@ -46,6 +46,27 @@
 .logo {
   max-height: 100%;
   max-width: 100%;
-  background: url(image-path("images/logo.png"));
+  background: url(image-path("homepage/logo.png"));
   margin: 0 auto;
+  height: 200px;
+  width: 400px;
+}
+.center-button {
+  text-align: center;
+  display: block;
+}
+
+.container-fluid{
+  height:100%;
+  display:table;
+  width: 100%;
+  padding: 0;
+  position: fixed;
+}
+
+.row-fluid {height: 100%; display:table-cell; vertical-align: middle;}
+ 
+.centering {
+  float:none;
+  margin:0 auto;
 }
