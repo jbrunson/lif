@@ -3,7 +3,8 @@
 FactoryGirl.define do
   factory :activity do
     arrival_date "2014-06-23"
-    departure_date "2014-06-23"
-    location "MyString"
+    departure_date "2014-06-26"
+    location "Vancouver, BC"
+    user 
   end
 end

@@ -13,7 +13,7 @@ video.max-width-height autoplay="" loop="" poster="http://artbees.net/themes/jup
                 h1
                   .logo
               footer
-                / =link_to "Sign in", new_user_session_path, { class: "button scrolly"}
+                =link_to "Sign in", new_user_session_path, { class: "button scrolly"}
                 =link_to "Sign in with Facebook", user_omniauth_authorize_path(provider: "facebook"), { id: "sign_in", class: "btn btn-outline-inverse btn-lg center-button" }
-                / =link_to "Add trip", new_activity_path, { class: "button scrolly"}
+                =link_to "Add trip", new_activity_path, { class: "button scrolly"}
 

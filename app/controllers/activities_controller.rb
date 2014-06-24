@@ -42,6 +42,18 @@ class ActivitiesController < ActionController::Base
 
   def show
     @activity = Activity.find params[:id]
+
+    # overlapping = Activity.all.select do |activity|
+    #   activity.overlaps?(@activity)
+    # end
+
+    users = User.all.select do |user|
+      user.activities.any? do |act|
+        act.overlaps?(@activity) 
+      end
+    end
+
+    @possible_matches = users.reject{ |user| user == current_user }
   end
 
 
