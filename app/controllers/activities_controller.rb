@@ -1,8 +1,9 @@
 class ActivitiesController < ActionController::Base
   layout "application"
+  before_filter :authenticate_user!
 
   def index
-    @activities = Activity.all
+    @activities = current_user.activities
   end
 
   def new
@@ -10,7 +11,8 @@ class ActivitiesController < ActionController::Base
   end
 
   def create
-    @activity = Activity.new activity_params
+    @activity = current_user.activities.build activity_params
+
     if @activity.save
       flash[:notice] = "Trip added"
       redirect_to activities_path
@@ -47,7 +49,7 @@ class ActivitiesController < ActionController::Base
   private
 
   def activity_params
-    params.require(:activity).permit(:arrival_date, :location)
+    params.require(:activity).permit(:arrival_date, :departure_date, :location)
   end
 
 

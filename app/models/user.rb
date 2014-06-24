@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :activies
+  has_many :activities
   
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
         user = User.new(
           name: auth.extra.raw_info.name,
           #username: auth.info.nickname || auth.uid,
+          gender: auth.extra.raw_info.gender,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
         )
