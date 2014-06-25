@@ -6,5 +6,12 @@ Rails.application.routes.draw do
   match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
   resources :activities
+  resources :users do
+    resources :likes
+    resources :matches
+  end
+
+
+
 
 end

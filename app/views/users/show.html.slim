@@ -1,0 +1,5 @@
+.container.padding-top-7
+  .row
+    .col-md-8 
+      h1 = @user.name
+      = button_to 'like', user_likes_path(@user)

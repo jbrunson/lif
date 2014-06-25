@@ -6,6 +6,9 @@
         tbody
           - @possible_matches.each do |match|
             tr
-              td = match.name
+              td
+                = link_to(user_path(match))
+                  = match.name
+              td = image_tag(match.pic, class: "profile-photo")
 
           
