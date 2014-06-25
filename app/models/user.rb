@@ -3,7 +3,11 @@ class User < ActiveRecord::Base
   has_many :activities
   has_many :matches
   has_many :liked_users, :through => :likes
-  
+  has_many :matched_users, :through => :matches
+  has_many :inverse_matches, :class_name => "Match", :foreign_key => "matched_user"
+  has_many :inverse_matched_users, :through => :inverse_matches, :source => :user
+
+
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
 
