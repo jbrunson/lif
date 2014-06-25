@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, :finish_signup
 
-
+  def show
+    @user = User.find(params[:id])
+  end
 
   def finish_signup
     if request.patch? && params[:user] #&& params[:user][:email]
