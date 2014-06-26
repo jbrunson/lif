@@ -2,6 +2,8 @@
   .row
     .col-md-8
       .message-history
+        - @history.each do |message|
+          p = message.body
   .row
     .col-md-8 
       = form_for [@current_user, @match, @message], remote: true do |f|
@@ -12,11 +14,3 @@
         div
           = f.submit 'Send a message'
 
-
-
-
-
-/ h3= message.subject
-/ p
-/   | From #{message.sender.name} #{time_ago_in_words(message.created_at)} ago
-/ p= message.body

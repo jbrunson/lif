@@ -29,6 +29,7 @@ gem 'omniauth-facebook'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'pusher'
+gem 'rails_12factor'
 
 group :development do
   gem 'foreman'
