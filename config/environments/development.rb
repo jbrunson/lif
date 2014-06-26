@@ -43,6 +43,13 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
+
+ require 'pusher'
+  Pusher.logger = Rails.logger
+  Pusher.app_id = ENV['PUSHER_APP_ID']
+  Pusher.key = ENV['PUSHER_KEY']
+  Pusher.secret = ENV['PUSHER_SECRET']
+
   # config.action_mailer.default_url_options = { :host => config.app_domain }
   # config.action_mailer.smtp_settings = {
   #   address: 'smtp.gmail.com', 

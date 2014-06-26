@@ -4,5 +4,6 @@
       table
        tbody
         - @matches.each do |match|
-          = match.matched_user.name
+          tr
+            td = link_to match.matched_user.name, user_match_path(current_user.id, match.id)
           

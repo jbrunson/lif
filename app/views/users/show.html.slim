@@ -1,5 +1,9 @@
 .container.padding-top-7
   .row
-    .col-md-8 
+    .col-md-2.col-md-offset-5
       h1 = @user.name
+      = image_tag(@user.pic, class: "profile-photo")
+  .row
+    .col-md-8 
+      
       = button_to 'like', user_likes_path(@user)
