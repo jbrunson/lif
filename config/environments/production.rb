@@ -37,7 +37,7 @@ Rails.application.configure do
   config.assets.digest = true
 
   # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version = ENV.fetch('ASSETS_VERSION')
+  # config.assets.version = ENV.fetch('ASSETS_VERSION')
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
@@ -59,7 +59,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = ENV.fetch('ASSET_HOST')
+  # config.action_controller.asset_host = ENV.fetch('ASSET_HOST')
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
@@ -69,7 +69,7 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = SMTP_SETTINGS
+  # config.action_mailer.smtp_settings = SMTP_SETTINGS
 
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
