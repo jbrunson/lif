@@ -7,7 +7,7 @@
           - @possible_matches.each do |match|
             tr
               td
-                = link_to(user_path(match))
+                = link_to(profile_path(match))
                   = match.name
               td = image_tag(match.pic, class: "profile-photo")
 

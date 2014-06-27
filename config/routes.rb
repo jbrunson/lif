@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'profiles/:id', to: 'profiles#show'
+
   root to: 'high_voltage/pages#show', id: 'homepage'
   get '/about' => 'high_voltage/pages#show', id: 'about'
 
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
     resources :likes
     resources :matches
   end
+
+  resources :profiles, only: [:show]
 
 
 
