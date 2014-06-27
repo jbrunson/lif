@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
   has_many :activities
   has_many :matches
   has_many :liked_users, :through => :likes
-  has_many :matched_users, :through => :matches
-  has_many :inverse_matches, :class_name => "Match", :foreign_key => "matched_user"
-  has_many :inverse_matched_users, :through => :inverse_matches, :source => :user
+  # has_many :matched_users, :through => :matches
+  # has_many :inverse_matches, :class_name => "Match", :foreign_key => "matched_user_id"
+  # has_many :inverse_matched_users, :through => :inverse_matches, :source => :user
 
 
   TEMP_EMAIL_PREFIX = 'change@me'
@@ -18,6 +18,13 @@ class User < ActiveRecord::Base
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
+  # def all_matches
+  #   self.matches.merge(self.inverse_matched_users)
+  # end
+
+  # def inverse_matches
+
+  # end
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 

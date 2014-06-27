@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
   before_filter :current_match
-  before_filter :matched_user
+  before_filter :matched_user, only: [:show]
 
   def index 
     @matches = current_user.matches
@@ -10,6 +10,7 @@ class MatchesController < ApplicationController
     @message = Message.new
     @history = Message.for_match(current_match)
   end
+
 
   def current_match
     @match ||= Match.find(params[:id]) if params[:id]
