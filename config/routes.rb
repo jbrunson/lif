@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :likes
     resources :matches
+    get 'profile', to: :show
   end
 
 
