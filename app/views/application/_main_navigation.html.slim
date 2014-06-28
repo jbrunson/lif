@@ -1,22 +1,38 @@
-nav.navbar.navbar-custom.navbar-fixed-top role="navigation" 
-  .container
-    .navbar-header.page-scroll
-      button.navbar-toggle data-target=".navbar-main-collapse" data-toggle="collapse" type="button" 
-        i.fa.fa-bars
-      a.navbar-brand href="#page-top" 
-        i.fa.fa-play-circle
-        span.light Unite
-    /! Collect the nav links, forms, and other content for toggling
-    .collapse.navbar-collapse.navbar-right.navbar-main-collapse
-      ul.nav.navbar-nav
-        /! Hidden li included to remove active class from about link when scrolled up past about section
-        li.hidden
-          a href="#page-top" 
-        li.page-scroll
-          =link_to 'About', page_path('about')
-        li.page-scroll
-          a href="#download"  Download
-        li.page-scroll
-          a href="#contact"  Contact
-    /! /.navbar-collapse
-  /! /.container
+/ header.block
+/   ul.header-menu.horizontal-list
+/     li
+/       a.header-menu-tab href="#1" 
+/         span.icon.entypo-cog.scnd-font-color
+/         | Settings
+/     li
+/       a.header-menu-tab href="#2" 
+/         span.icon.fontawesome-user.scnd-font-color
+/         | Account
+/     li
+/       a.header-menu-tab href="#3" 
+/         span.icon.fontawesome-envelope.scnd-font-color
+/         | Messages
+/       a.header-menu-number href="#4"  5
+/     li
+/       a.header-menu-tab href="#5" 
+/         span.icon.fontawesome-star-empty.scnd-font-color
+/         | Favorites
+/   .profile-menu
+/     p
+/       | Me
+/       a href="#26" 
+/         span.entypo-down-open.scnd-font-color
+/     .profile-picture.small-profile-picture
+/       img alt=("Anne Hathaway picture") src="http://upload.wikimedia.org/wikipedia/commons/e/e1/Anne_Hathaway_Face.jpg" width="40px" 
+#menu.menu.nav-collapse.collapse.width
+  .collapse-inner
+    .navbar.navbar-inverse
+      .navbar-inner
+        | Menu
+    ul.nav.nav-tabs.nav-stacked
+      li
+        a Futurama
+      li
+        a Star Wars
+      li
+        a Doctor Who

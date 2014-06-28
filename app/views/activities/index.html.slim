@@ -1,8 +1,15 @@
-.container.padding-top-7
-  .row
-    .col-md-8  
-      table
-       tbody
-        - @activities.each do |activity|
-          tr
-            td = link_to activity.location, activity_path(activity.id)
+.view
+  .navbar.navbar-inverse
+    .navbar-inner
+      button.btn.btn-navbar data-target="#menu" data-toggle="collapse" type="button" 
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+  .container.padding-top-7
+    .row
+      .col-md-8  
+        table
+         tbody
+          - @activities.each do |activity|
+            tr
+              td = link_to activity.location, activity_path(activity.id)

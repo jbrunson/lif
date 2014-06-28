@@ -8,7 +8,8 @@ html
     title
       = title
 
-    = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag 'bootstrap', media: 'all'
+    = stylesheet_link_tag 'grayscale', media: 'all'
     = csrf_meta_tags
     
     meta name="description" content="" 
@@ -18,20 +19,19 @@ html
 
   body.no-js
     #page-wrapper
-      .viewport
-        .frame
-          header role="banner"  
-            = render 'application/main_navigation'
-            = render 'application/flashes'
+      header role="banner"  
+        = render 'static_page/main_navigation'
+        = render 'application/flashes'
 
-          #main role="main" 
-            = yield
+      #main role="main" 
+        = yield
 
-          aside.right
-            - # Each partial is defined in a section element
-            /= render :partial => 'shared/map'
+      aside.right
+        - # Each partial is defined in a section element
+        /= render :partial => 'shared/map'
 
-          footer role="contentinfo" 
+
+      footer role="contentinfo"
 
     script src="http://js.pusherapp.com/2.2/pusher.min.js" 
 

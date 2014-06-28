@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   get 'profiles/:id', to: 'profiles#show'
 
-  root to: 'high_voltage/pages#show', id: 'homepage'
-  get '/about' => 'high_voltage/pages#show', id: 'about'
+  get "/pages/*id" => 'pages#show', as: :page, format: false
+
+  root to: 'pages#show', id: 'homepage'
 
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
@@ -24,3 +25,5 @@ Rails.application.routes.draw do
 
 
 end
+
+

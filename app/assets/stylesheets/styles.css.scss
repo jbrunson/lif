@@ -1,76 +1,102 @@
-.max-width-height {
-  width:100%;
-  height:100%;
-  position: fixed;
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body .viewport {
+  position: absolute;
+  top: 0;
   right: 0;
   bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  background-size: cover;
+  left: 0;
+  overflow: hidden;
 }
 
-/*
- * Button Inverse
- *
- * Buttons in the masthead.
- */
-
-.btn-outline-inverse {
-  color: #fff;
-  background-color: transparent;
-  border-color: #cdbfe3;
-  margin: 10px;
+body .viewport .frame {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0; 
 }
 
-@media (min-width: 768px) {
-
-    .btn-outline-inverse {
-        width: auto;
-        margin: 20px 5px 20px 0;
-        padding: 18px 24px;
-        font-size: 21px;
-    }
-
+body .viewport .frame .navbar .navbar-inner {
+  border-radius: 0;
+  padding-left: 5px; 
 }
 
-.btn-outline-inverse:hover, .btn-outline-inverse:focus, .btn-outline-inverse:active {
-  color: #563d7c;
-  text-shadow: none;
-  background-color: #fff;
-  border-color: #fff;
+body .viewport .frame .menu {
+  height: 100%;
+  /* background-color: #3D6AA2; */ 
 }
 
-.logo {
-  max-height: 100%;
-  max-width: 100%;
-  background: url(image-path("homepage/logo.png"));
-  margin: 0 auto;
-  height: 200px;
-  width: 400px;
+body .viewport .frame .menu.collapse {
+  float: left;
+  height: 100% !important;
+  width: auto; 
 }
-.center-button {
+
+body .viewport .frame .menu.collapse.height {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.35s ease;
+  -moz-transition: height 0.35s ease;
+  -o-transition: height 0.35s ease;
+  transition: height 0.35s ease; 
+}
+
+body .viewport .frame .menu.collapse.width {
+  position: relative;
+  width: 0;
+  overflow: hidden;
+  -webkit-transition: width 0.35s ease;
+  -moz-transition: width 0.35s ease;
+  -o-transition: width 0.35s ease;
+  transition: width 0.35s ease; 
+}
+
+body .viewport .frame .menu.collapse.in.width {
+  width: auto; 
+}
+
+body .viewport .frame .menu.collapse.in.height {
+  height: auto; 
+}
+
+body .viewport .frame .menu .collapse-inner {
+  position: relative;
+  width: 250px;
+  height: 100%; 
+}
+
+body .viewport .frame .menu .navbar .navbar-inner {
   text-align: center;
+  color: grey;
+  font-size: 1.2em;
+  line-height: 38px; 
+}
+
+body .viewport .frame .menu .nav-stacked {
+  padding: 0 10px; 
+}
+
+body .viewport .frame .view {
+  width: 50%;
+  height: 100%;
+  overflow: hidden; 
+}
+
+body .viewport .frame .view .navbar .navbar-inner .btn-navbar {
   display: block;
+  float: left; 
 }
 
-.container-fluid{
-  height:100%;
-  display:table;
-  width: 100%;
-  padding: 0;
-  position: fixed;
-}
-
-.row-fluid {height: 100%; display:table-cell; vertical-align: middle;}
- 
-.centering {
-  float:none;
-  margin:0 auto;
-}
-
-.padding-top-7 {
-  padding-top: 7em;
+body .viewport .frame .view #content {
+  margin: auto 15px;
+  text-align: justify; 
 }
