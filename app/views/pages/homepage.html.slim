@@ -1,17 +1,17 @@
-video.max-width-height autoplay="" loop="" poster="http://artbees.net/themes/jupiter-demo/wp-content/uploads/2013/10/home-vid-img.jpg" 
-  source src="http://artbees.net/themes/jupiter-demo/wp-content/uploads/2013/10/homepage.webm" type="video/webm" 
-    source src="http://artbees.net/themes/jupiter-demo/wp-content/uploads/2013/10/shutterstock_v3702740_4.m4v" type="video/mp4" 
+/ video.max-width-height autoplay="" loop="" poster="http://artbees.net/themes/jupiter-demo/wp-content/uploads/2013/10/home-vid-img.jpg" 
+/   source src="http://artbees.net/themes/jupiter-demo/wp-content/uploads/2013/10/homepage.webm" type="video/webm" 
+/     source src="http://artbees.net/themes/jupiter-demo/wp-content/uploads/2013/10/shutterstock_v3702740_4.m4v" type="video/mp4" 
 /! Header
 .container-fluid
   .row-fluid
     .centering
       .container
         .row
-          .col-md-4.col-md-offset-4.col-sm-4.col-sm-offset-4.col-xs-4.col-xs-offset-4
+          .col-md-6.col-md-offset-3.col-sm-4.col-sm-offset-4.col-xs-4.col-xs-offset-4
             section#header.dark
               header
                 h1
                   .logo
-              footer
+              footer.col-md-8.col-md-offset-2
                 =link_to "Sign in with Facebook", user_omniauth_authorize_path(provider: "facebook"), { id: "sign_in", class: "btn btn-outline-inverse btn-lg center-button" }
 
