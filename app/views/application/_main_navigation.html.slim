@@ -1,12 +1,36 @@
-#menu.menu.nav-collapse.collapse.width
-  .collapse-inner
-    .navbar.navbar-inverse
-      .navbar-inner
-        | Menu
-    ul.nav.nav-tabs.nav-stacked
-      li
-        a Futurama
-      li
-        a Star Wars
-      li
-        a Doctor Who
+.navmenu.navmenu-default.navmenu-fixed-left
+  = image_tag(current_user.pic, class: "profile-photo") if current_user
+  a.navmenu-brand href="/"  Unite
+  ul.nav.navmenu-nav
+    li
+      =link_to "Trips", activities_path
+    li
+      a href="http://jasny.github.io/bootstrap/examples/navmenu-push/"  Settings
+    li.active
+      a href=("./Off Canvas Reveal Menu Template for Bootstrap_files/Off Canvas Reveal Menu Template for Bootstrap.html")  Reveal
+    li
+      a href="http://jasny.github.io/bootstrap/examples/navbar-offcanvas/"  Off canvas navbar
+  ul.nav.navmenu-nav
+    li
+      a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Link
+    li
+      a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Link
+    li
+      a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Link
+    li.dropdown
+      a.dropdown-toggle data-toggle="dropdown" href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#" 
+        | Dropdown
+        b.caret
+      ul.dropdown-menu.navmenu-nav
+        li
+          a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Action
+        li
+          a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Another action
+        li
+          a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Something else here
+        li.divider
+        li.dropdown-header Nav header
+        li
+          a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Separated link
+        li
+          a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  One more separated link

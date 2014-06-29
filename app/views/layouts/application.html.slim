@@ -17,20 +17,26 @@ html
   
 
   body
-    .viewport
-      .frame 
-        = render 'application/main_navigation'
-        / = render 'application/flashes'
+    = render 'application/main_navigation'
 
-        / #main role="main" 
-        = yield
+    .canvas#main role="main"
+      header.navbar.navbar-static-top.bs-docs-nav.blue-1#top role="banner"
+        .container
+          .row
+            .navbar.navbar-default.navbar-fixed-top
+              button.navbar-toggle.no-border data-canvas=".canvas" data-recalc="false" data-target=".navmenu" data-toggle="offcanvas" type="button" 
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+      .container
+        .row
+          = render 'application/flashes'
+          = yield
 
-        / aside.right
-          - # Each partial is defined in a section element
-          /= render :partial => 'shared/map'
+    / aside.right
+      - # Each partial is defined in a section element
+      /= render :partial => 'shared/map'
 
-        footer role="contentinfo" 
-
+    footer role="contentinfo" 
     script src="http://js.pusherapp.com/2.2/pusher.min.js" 
-
     = javascript_include_tag 'application'
