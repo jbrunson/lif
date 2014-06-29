@@ -17,7 +17,7 @@ html, body {
   z-index: 2;
   min-height: 100%;
   padding: 50px 0 0 0;
-  background: #fff;
+  background-color: rgb(249, 249, 249);
 }
 
 @media (min-width: 0) {
@@ -39,6 +39,9 @@ html, body {
     padding: 0;
   }
 }
+.navmenu-default {
+  background-color: #ffffff
+}
 .blue-1 {
   // background-color: #3367D6;
   background-color: #00bcd4;
@@ -49,3 +52,27 @@ html, body {
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
   background-color: #00bcd4;
 }
+.avatar {
+  padding: 1em;
+}
+.avatar img {
+  display: block;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.navbar {
+  position: relative;
+  /* min-height: 50px; */
+  margin-bottom: 0;
+  border: 0;
+}
+.navbar-default {
+  background-color: #00bcd4;
+}
+.canvas {
+  padding: 0;
+}
+
+

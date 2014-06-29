@@ -1,5 +1,8 @@
 .navmenu.navmenu-default.navmenu-fixed-left
-  = image_tag(current_user.pic, class: "profile-photo") if current_user
+  = link_to profile_path(current_user)
+    .avatar
+      = image_tag(current_user.pic, class: "profile-photo") if current_user
+      | View profile
   a.navmenu-brand href="/"  Unite
   ul.nav.navmenu-nav
     li

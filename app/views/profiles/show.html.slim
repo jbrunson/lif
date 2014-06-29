@@ -6,4 +6,9 @@
   .row
     .col-md-8 
       
-      = button_to 'like', user_likes_path(@user), remote: true
+      = button_to 'like', user_likes_path(@user), remote: true, class: "btn btn-default"
+
+  .row
+    .col-md-8
+      ul
+        li Add places traveled to
