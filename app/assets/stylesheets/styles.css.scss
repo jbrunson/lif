@@ -53,8 +53,15 @@ html, body {
   background-color: #00bcd4;
 }
 .avatar {
+  
+}
+.padding-1 {
   padding: 1em;
 }
+.center {
+  text-align: center;
+}
+
 .avatar img {
   display: block;
   width: 90px;
@@ -75,4 +82,12 @@ html, body {
   padding: 0;
 }
 
-
+.new-activity-form-container {
+  height: 100%;
+  z-index: 160;
+  position: absolute;
+  top: 0;
+  height: 300px;
+  width: 100%;
+  padding-top: 140px;
+}

@@ -28,10 +28,8 @@ html
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-      .container
-        .row
-          = render 'application/flashes'
-          = yield
+      = render 'application/flashes'
+      = yield
 
     / aside.right
       - # Each partial is defined in a section element

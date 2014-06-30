@@ -1,10 +1,32 @@
-
-.container.padding-top-7
+#carousel-example-generic.carousel.slide data-ride="carousel" data-interval="false" 
+  /! Indicators
+  ol.carousel-indicators
+    li.active data-slide-to="0" data-target="#carousel-example-generic" 
+    li data-slide-to="1" data-target="#carousel-example-generic"  
+  /! Wrapper for slides
+  .carousel-inner
+    .item.active
+      = image_tag("new-activity/new-york-city.jpg")
+        .carousel-caption
+    .item
+      = image_tag("new-activity/yosemite.jpg")
+        .carousel-caption
+  /! Controls
+  a.left.carousel-control data-slide="prev" href="#carousel-example-generic" role="button" 
+    span.glyphicon.glyphicon-chevron-left
+  a.right.carousel-control data-slide="next" href="#carousel-example-generic" role="button" 
+    span.glyphicon.glyphicon-chevron-right
+.container.new-activity-form-container
   .row
-    .col-md-8
-      =simple_form_for @activity do |f|
-        =f.input_field :arrival_date
-        =f.input_field :departure_date
-        =f.input :location
-        =f.button :submit
-      end
+    .container.padding-top-7
+      .row
+        .col-md-8.col-md-offset-2
+          =simple_form_for @activity, 
+          wrapper: :inline_form, 
+          html: { class: "form-inline"}, 
+          wrapper_mappings: { boolean: :vertical_boolean } do |f|
+            =f.input :arrival_date, as: :string, input_html: { class:  'datepicker', placeholder: 'Arriving'}
+            =f.input :departure_date, as: :string, input_html: { class: 'datepicker', placeholder: 'Departing' }
+            =f.input :location, input_html: {  placeholder: 'Location' }
+            =f.button :submit
+          end
