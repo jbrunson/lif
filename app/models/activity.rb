@@ -13,6 +13,6 @@ class Activity < ActiveRecord::Base
   }}
 
 
-
+# scope :user, where(gender: 'female')
 
 end

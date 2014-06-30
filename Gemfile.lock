@@ -144,6 +144,7 @@ GEM
     newrelic_rpm (3.8.1.221)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
+    oauth (0.4.7)
     oauth2 (0.9.4)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -265,6 +266,9 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    tripit (0.4.0)
+      json
+      oauth
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
     uglifier (2.5.1)
@@ -328,6 +332,7 @@ DEPENDENCIES
   spring-commands-rspec
   timecop
   title
+  tripit
   uglifier
   unicorn
   webmock

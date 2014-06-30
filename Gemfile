@@ -30,6 +30,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'pusher'
 gem 'rails_12factor'
+gem 'tripit'
 
 group :development do
   gem 'foreman'

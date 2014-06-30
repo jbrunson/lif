@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   # def all_matches
   #   self.matches.merge(self.inverse_matched_users)
   # end
-
+  # scope :interested_in,     ->(user) { where("gender = ", user.interested_in, user.id)}
   # def inverse_matches
 
   # end
