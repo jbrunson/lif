@@ -1,4 +1,6 @@
-$(".datepicker").datepicker();
+$(".datepicker").datepicker(
+  { dateFormat: "dd-mm-yy"}
+);
 
 $(".datepicker").on("change", function () {
     var id = $(this).attr("id");
