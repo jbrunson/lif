@@ -1,6 +1,5 @@
 $(function() {
-      var pusher = new Pusher('be501751f2a6e46bddb3'); // Replace with your app key
-      // var channel = pusher.subscribe('private-'+<%= current_user ? current_user.id : 'null' %>);
+      var pusher = new Pusher('be501751f2a6e46bddb3');
       var url = window.location.href;
       var url_array = url.split('/');
       var match_id = url_array[url_array.length-1];

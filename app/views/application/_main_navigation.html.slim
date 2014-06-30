@@ -1,23 +1,39 @@
-nav.navbar.navbar-custom.navbar-fixed-top role="navigation" 
-  .container
-    .navbar-header.page-scroll
-      button.navbar-toggle data-target=".navbar-main-collapse" data-toggle="collapse" type="button" 
-        i.fa.fa-bars
-      a.navbar-brand href="#page-top" 
-        i.fa.fa-play-circle
-        span.light Start
-        | Bootstrap
-    /! Collect the nav links, forms, and other content for toggling
-    .collapse.navbar-collapse.navbar-right.navbar-main-collapse
-      ul.nav.navbar-nav
-        /! Hidden li included to remove active class from about link when scrolled up past about section
-        li.hidden
-          a href="#page-top" 
-        li.page-scroll
-          =link_to 'About', page_path('about')
-        li.page-scroll
-          a href="#download"  Download
-        li.page-scroll
-          a href="#contact"  Contact
-    /! /.navbar-collapse
-  /! /.container
+.navmenu.navmenu-default.navmenu-fixed-left
+  = link_to profile_path(current_user)
+    .avatar.padding-1.center
+      = image_tag(current_user.pic, class: "profile-photo") if current_user
+      | View profile
+  a.navmenu-brand href="/"  Unite
+  ul.nav.navmenu-nav
+    li
+      =link_to "Trips", activities_path
+    li
+      a href="http://jasny.github.io/bootstrap/examples/navmenu-push/"  Settings
+  /   li.active
+  /     a href=("./Off Canvas Reveal Menu Template for Bootstrap_files/Off Canvas Reveal Menu Template for Bootstrap.html")  Reveal
+  /   li
+  /     a href="http://jasny.github.io/bootstrap/examples/navbar-offcanvas/"  Off canvas navbar
+  / ul.nav.navmenu-nav
+  /   li
+  /     a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Link
+  /   li
+  /     a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Link
+  /   li
+  /     a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Link
+  /   li.dropdown
+  /     a.dropdown-toggle data-toggle="dropdown" href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#" 
+  /       | Dropdown
+  /       b.caret
+  /     ul.dropdown-menu.navmenu-nav
+  /       li
+  /         a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Action
+  /       li
+  /         a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Another action
+  /       li
+  /         a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Something else here
+  /       li.divider
+  /       li.dropdown-header Nav header
+  /       li
+  /         a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  Separated link
+  /       li
+  /         a href="http://jasny.github.io/bootstrap/examples/navmenu-reveal/#"  One more separated link

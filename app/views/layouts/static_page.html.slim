@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    meta  charset="utf-8"
+  
+    meta  http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+
+    title
+      = title
+
+    = stylesheet_link_tag 'bootstrap', media: 'all'
+    = stylesheet_link_tag 'grayscale', media: 'all'
+    = csrf_meta_tags
+    
+    meta name="description" content="" 
+    meta name="author" content="" 
+    meta name="viewport" content="width=device-width,initial-scale=1" 
+  
+
+  body
+    #page-wrapper
+      header role="banner"  
+        = render 'static_page/main_navigation'
+        = render 'application/flashes'
+
+      #main role="main" 
+        = yield
+
+      aside.right
+        - # Each partial is defined in a section element
+        /= render :partial => 'shared/map'
+
+
+      footer role="contentinfo"
+
+    script src="http://js.pusherapp.com/2.2/pusher.min.js" 
+
+    = javascript_include_tag 'application'

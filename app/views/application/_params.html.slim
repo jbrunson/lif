@@ -1,0 +1,10 @@
+- if Rails.env.development?
+  .container
+    .row
+      section.dev-info
+        .debug-params
+          h2 Params
+          = debug(params)
+        .debug-previous-url
+          h2 Previous URL
+          = debug(session[:previous_url])

@@ -1,76 +1,99 @@
-.max-width-height {
-  width:100%;
-  height:100%;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
+html, body {
+  height: 100%;
+}
+
+.navbar-toggle {
+  float: left;
+  margin-left: 15px;
+}
+
+.navmenu {
+  z-index: 1;
+}
+
+.canvas {
+  position: relative;
+  left: 0;
+  z-index: 2;
   min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  background-size: cover;
+  padding: 50px 0 0 0;
+  background-color: rgb(249, 249, 249);
 }
 
-/*
- * Button Inverse
- *
- * Buttons in the masthead.
- */
-
-.btn-outline-inverse {
-  color: #fff;
-  background-color: transparent;
-  border-color: #cdbfe3;
-  margin: 10px;
+@media (min-width: 0) {
+  .navbar-toggle {
+    display: block; /* force showing the toggle */
+  }
 }
 
-@media (min-width: 768px) {
-
-    .btn-outline-inverse {
-        width: auto;
-        margin: 20px 5px 20px 0;
-        padding: 18px 24px;
-        font-size: 21px;
-    }
-
+@media (min-width: 992px) {
+  body {
+    padding: 0;
+  }
+  .navbar {
+    right: auto;
+    background: none;
+    border: none;
+  }
+  .canvas {
+    padding: 0;
+  }
 }
-
-.btn-outline-inverse:hover, .btn-outline-inverse:focus, .btn-outline-inverse:active {
-  color: #563d7c;
-  text-shadow: none;
-  background-color: #fff;
-  border-color: #fff;
+.navmenu-default {
+  background-color: #ffffff
 }
-
-.logo {
-  max-height: 100%;
-  max-width: 100%;
-  background: url(image-path("homepage/logo.png"));
-  margin: 0 auto;
-  height: 200px;
-  width: 400px;
+.blue-1 {
+  // background-color: #3367D6;
+  background-color: #00bcd4;
 }
-.center-button {
+.navbar-default .navbar-toggle.no-border {
+  border: 0;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #00bcd4;
+}
+.avatar {
+  
+}
+.padding-1 {
+  padding: 1em;
+}
+.center {
   text-align: center;
+}
+
+.avatar img {
   display: block;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0 auto;
 }
-
-.container-fluid{
-  height:100%;
-  display:table;
-  width: 100%;
+.navbar {
+  position: relative;
+  /* min-height: 50px; */
+  margin-bottom: 0;
+  border: 0;
+}
+.navbar-default {
+  background-color: #00bcd4;
+}
+.canvas {
   padding: 0;
-  position: fixed;
 }
 
-.row-fluid {height: 100%; display:table-cell; vertical-align: middle;}
- 
-.centering {
-  float:none;
-  margin:0 auto;
+.new-activity-form-container {
+  height: 100%;
+  z-index: 160;
+  position: absolute;
+  top: 0;
+  height: 300px;
+  width: 100%;
+  padding-top: 140px;
 }
-
-.padding-top-7 {
-  padding-top: 7em;
+.white {
+  color: #fff;
+}
+.text-shadow {
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.6)
 }

@@ -16,7 +16,7 @@ gem 'rack-timeout'
 gem 'rails', '4.1.1'
 gem 'recipient_interceptor'
 gem 'sass-rails', '~> 4.0.3'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
 gem 'title'
 gem 'uglifier'
 gem 'unicorn'
@@ -30,7 +30,8 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'pusher'
 gem 'rails_12factor'
-gem 'tripit'
+gem 'datetimepicker-rails', :require => 'datetimepicker-rails', :git => 'git://github.com/zpaulovics/datetimepicker-rails.git'
+
 
 group :development do
   gem 'foreman'
