@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @messages = current_user.received_messages
+    @messages = Message.for_match(current_match)
   end
   
   def create

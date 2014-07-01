@@ -12,7 +12,7 @@ class Activity < ActiveRecord::Base
     :conditions => ["(DATEDIFF(arrival_date, ?) * DATEDIFF(?, departure_date)) >= 0", interval.departure_date, interval.arrival_date]
   }}
 
-
+  scope :current_and_future, -> { where("(departure_date > ?)", DateTime.now)}
 # scope :user, where(gender: 'female')
 
 end

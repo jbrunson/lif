@@ -8,6 +8,8 @@ html
     title
       = title
     / link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"
+    link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"
+
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
     
@@ -23,11 +25,23 @@ html
       header.navbar.navbar-static-top.bs-docs-nav.blue-1#top role="banner"
         .container
           .row
-            .navbar.navbar-default.navbar-fixed-top
+            .navbar.navbar-default.navbar-fixed-top.navbar-nav.navbar
               button.navbar-toggle.no-border data-canvas=".canvas" data-recalc="false" data-target=".navmenu" data-toggle="offcanvas" type="button" 
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
+            ul.nav.navbar-nav.navbar-right
+              li
+                = link_to user_matches_path current_user
+                  i.fa.fa-comment.fa-lg.float-right
+              li
+                = link_to user_path(current_user)
+                  span.pad-right-1.white
+                    = current_user.name
+                  = image_tag(current_user.pic, class: "navbar-profile-photo")
+              
+
+
       = render 'application/flashes'
       = yield
 

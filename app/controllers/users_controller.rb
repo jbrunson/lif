@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @activities = @user.activities.current_and_future.limit(5)
+    @matches = @user.matches.order(created_at: :desc).limit(5)
   end
 
   def finish_signup

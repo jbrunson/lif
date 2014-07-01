@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe MessageController do
+describe MessagesController do
 
 end

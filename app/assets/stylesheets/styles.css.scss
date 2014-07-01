@@ -94,6 +94,66 @@ html, body {
 .white {
   color: #fff;
 }
+
+@mixin white {
+  color: #fff;
+}
 .text-shadow {
   text-shadow: 0 -1px 1px rgba(0,0,0,0.6)
+}
+
+.navbar-profile-photo {
+  width: 25px;
+  height: 25px;
+}
+
+.min-height-10 {
+  min-height: 10em;
+}
+
+@mixin min-height-10 {
+  min-height: 10em;
+}
+
+.bg-green {
+  background-color: #009688;
+}
+
+.bg-purple {
+  background-color: #673ab7;
+}
+
+.pad-right-1 {
+  padding-right: 1em;
+}
+
+.box-pad-1 {
+  padding: 1em;
+}
+
+@mixin box-pad-1 {
+  padding: 1em;
+}
+.margin-top-0 {
+  margin-top: 0;
+}
+.block {
+  display: block;
+}
+.wi.block {
+ display: block; 
+}
+
+.box-style {
+  @include box-pad-1;
+  @include white;
+  @include min-height-10;
+}
+
+.no-dec-link, .no-dec-link:hover {
+  text-decoration: none;
+}
+
+.m-bottom-1 {
+  margin-bottom: 1em;
 }

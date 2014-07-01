@@ -1,9 +1,43 @@
 .container.padding-top-7
   .row
-    .col-md-2.col-md-offset-5
+    .col-md-2
       h1 = @user.name
       = image_tag(@user.pic, class: "profile-photo")
-  .row
-    .col-md-8 
-      
-      = link_to 'create activity', new_activity_path
+    .col-md-3.box-pad-1
+      .box-style.bg-purple
+        = link_to matches_path, class: "no-dec-link"
+          h2.center.margin-top-0.white Matches
+        - @matches.each do |match|
+          .m-bottom-1
+            = link_to profile_path(match.matched_user), class: "white no-dec-link"
+              span.box-pad-1
+                = match.matched_user.name
+              = image_tag(match.matched_user.pic, class: "navbar-profile-photo")
+
+    .col-md-3.box-pad-1
+      .box-style.bg-green
+        = link_to activities_path, class: "no-dec-link"
+          h2.center.margin-top-0.white Activities
+        - @activities.each do |activity|
+          .activity
+            = link_to activity_path(activity.id), class: "white no-dec-link"
+              span.box-pad-1
+                = activity.location
+              = friendly_date_format(activity.arrival_date)
+    .col-md-3.box-pad-1
+      .box-style.bg-green
+        = link_to activity_path(@activities.first), class: "no-dec-link"
+          h2.white.center.margin-top-0 = @activities.first.location
+    .col-md-3.box-pad-1
+      .box-style.bg-purple
+        h2.center.margin-top-0 Weather
+        span.box-pad-1
+          i.wi.wi-day-lightning.fa-5x.center.block
+    .col-md-3.box-pad-1
+      = link_to new_activity_path, class: "no-dec-link"
+        .box-style.bg-purple
+          h2.center.margin-top-0 Add Activity
+          span.box-pad-1       
+            i.fa.fa-plane.fa-5x.center.block
+
+   

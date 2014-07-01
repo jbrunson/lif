@@ -5,10 +5,13 @@
       = image_tag(@user.pic, class: "profile-photo")
   .row
     .col-md-8 
-      
-      = button_to 'like', user_likes_path(@user), remote: true, class: "btn btn-default"
-
-  .row
-    .col-md-8
-      ul
-        li Add places traveled to
+      - if current_user.likes.where(liked_user: @user).count < 1
+        = button_to 'like', user_likes_path(@user), remote: true, class: "btn btn-default"
+      - if @match
+        = link_to "Send message", match_path(@match)
+  / .row
+  /   .col-md-8
+  /     ul
+  /       - @user.activities.each do |activity|
+  /         li
+  /           = activity.location

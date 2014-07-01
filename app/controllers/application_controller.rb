@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_match
+  helper_method :friendly_date_format
+  helper_method :match_exists?
 
    def ensure_signup_complete
     # Ensure we don't go into an infinite loop
@@ -17,7 +19,21 @@ class ApplicationController < ActionController::Base
   end
 
   def current_match
-    @current_match ||= Match.find(params[:id])
+    @current_match ||= Match.find(params[:match_id])
+  end
+
+  def friendly_date_format(date)
+    date.strftime("%b %d, %Y")
+  end
+
+  def match_exists?(user, user2)
+    match = user.matches.where(matched_user: user2)
+
+    if match.count > 0
+      match.first
+    else 
+      nil
+    end
   end
 
 end
