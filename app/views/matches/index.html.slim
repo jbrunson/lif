@@ -1,9 +1,15 @@
 .container.padding-top-7
   .row
-    .col-md-8  
-      table
-       tbody
-        - @matches.each do |match|
-          tr
-            td = link_to match.matched_user.name, user_match_path(current_user.id, match.id)
+    .col-md-4
+      - @matches.each do |match|
+        = link_to user_match_path(current_user.id, match.id), class: "no-dec-link"
+          .row.box-pad-p5
+            .col-md-10
+              = match.matched_user.name
+            .col-md-2
+              = image_tag(match.matched_user.pic, class: "navbar-profile-photo")
+            time = time_ago_in_words(Message.for_match(match).order("created_at DESC").limit(1).first.created_at) + " ago"
+
+          
+            
           

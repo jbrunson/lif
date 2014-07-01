@@ -40,4 +40,15 @@
           span.box-pad-1       
             i.fa.fa-plane.fa-5x.center.block
 
+    .col-md-3.box-pad-1
+      .box-style.bg-green
+        = link_to matches_path, class: "no-dec-link"
+          h2.center.margin-top-0.white Users nearby
+        - @matches.each do |match|
+          .m-bottom-1
+            = link_to profile_path(match.matched_user), class: "white no-dec-link"
+              span.box-pad-1
+                = match.matched_user.name
+              = image_tag(match.matched_user.pic, class: "navbar-profile-photo")
+
    
