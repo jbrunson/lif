@@ -22,14 +22,14 @@ html
     = render 'application/main_navigation'
 
     .canvas#main role="main"
-      header.navbar.navbar-static-top.bs-docs-nav.blue-1#top role="banner"
-        .container
-          .row
-            .navbar.navbar-default.navbar-fixed-top.navbar-nav.navbar
-              button.navbar-toggle.no-border data-canvas=".canvas" data-recalc="false" data-target=".navmenu" data-toggle="offcanvas" type="button" 
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
+      .container
+        nav.navbar.navbar-default.navbar-static-top.bs-docs-nav.bg-white.box-shadow-1.rounded-corners#top role="navigation"
+          .navbar-header
+            button.navbar-toggle.no-border data-canvas=".canvas" data-recalc="false" data-target=".navmenu" data-toggle="offcanvas" type="button" 
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          .navbar-collapse.collapse
             ul.nav.navbar-nav.navbar-right
               li
                 = link_to user_matches_path current_user
@@ -39,7 +39,6 @@ html
                   span.pad-right-1.white
                     = current_user.name
                   = image_tag(current_user.pic, class: "navbar-profile-photo")
-              
 
 
       = render 'application/flashes'

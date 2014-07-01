@@ -103,7 +103,7 @@ $success-color: $light-green;
   border: 0;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: #00bcd4;
+  background-color: #fff;
 }
 .avatar {
   
@@ -129,10 +129,18 @@ $success-color: $light-green;
   border: 0;
 }
 .navbar-default {
-  background-color: #00bcd4;
+  background-color: #fff;
 }
 .canvas {
   padding: 0;
+}
+
+.box-shadow-1 {
+  box-shadow: 0 6px 10px -10px #555;
+}
+
+.rounded-corners {
+  border-radius: 3px;
 }
 
 .new-activity-form-container {
@@ -158,6 +166,7 @@ $success-color: $light-green;
 .navbar-profile-photo {
   width: 25px;
   height: 25px;
+  border-radius: 50%;
 }
 
 .min-height-10 {
@@ -235,3 +244,11 @@ $success-color: $light-green;
   .box-pad-p5 {
     padding: 0.5em;
   }
+  .bg-white {
+    background-color: #fff;
+  }
+@media (min-width: 768px) {
+  .navbar-nav.navbar-right:last-child {
+    margin-right: 0;
+  }
+}
