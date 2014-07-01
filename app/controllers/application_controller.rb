@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_match
   helper_method :friendly_date_format
   helper_method :match_exists?
+  helper_method :message_time_format
 
    def ensure_signup_complete
     # Ensure we don't go into an infinite loop
@@ -24,6 +25,10 @@ class ApplicationController < ActionController::Base
 
   def friendly_date_format(date)
     date.strftime("%b %d, %Y")
+  end
+
+  def message_time_format(date)
+    date.strftime("%-I:%M %p")
   end
 
   def match_exists?(user, user2)

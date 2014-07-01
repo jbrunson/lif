@@ -1,6 +1,58 @@
 html, body {
   height: 100%;
 }
+$base-font-size: 1em;
+$base-line-height: $base-font-size * 1.5;
+// Colors
+$blue: #477DCA;
+$dark-gray: #333;
+$medium-gray: #999;
+$light-gray: #DDD;
+$light-red: #FBE3E4;
+$light-yellow: #FFF6BF;
+$light-green: #E6EFC2;
+
+// Flash Colors
+$alert-color: $light-yellow;
+$error-color: $light-red;
+$notice-color: $light-yellow;
+$success-color: $light-green;
+
+@mixin flash($color) {
+  background: $color;
+  color: darken($color, 60);
+  font-weight: bold;
+  margin-bottom: $base-line-height / 2;
+  padding: $base-line-height / 2;
+
+  a {
+    color: darken($color, 70);
+
+    &:hover {
+      color: darken($color, 90);
+    }
+  }
+}
+.right {
+  float: right;
+}
+
+#flash-alert {
+  @include flash($alert-color);
+}
+
+#flash-error {
+  @include flash($error-color);
+}
+
+#flash-notice {
+  @include flash($notice-color);
+}
+
+#flash-success {
+  @include flash($success-color);
+}
+
 
 .navbar-toggle {
   float: left;
@@ -118,6 +170,13 @@ html, body {
 .bg-green {
   background-color: #009688;
 }
+@mixin bg-gray {
+  background-color: #C8C8C8;
+}
+
+@mixin bg-light-green {
+  background-color: #CCFFCC;
+}
 
 .bg-purple {
   background-color: #673ab7;
@@ -156,4 +215,18 @@ html, body {
 
 .m-bottom-1 {
   margin-bottom: 1em;
+}
+
+.my-message {
+  float: right;
+  @include bg-light-green;
+  padding: 0.7em;
+  margin-bottom: 0.7em;
+}
+
+.their-message {
+  float: left;
+  @include bg-gray;
+  padding: 0.7em;
+  margin-bottom: 0.7em;
 }

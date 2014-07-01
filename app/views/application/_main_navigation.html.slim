@@ -1,5 +1,5 @@
 .navmenu.navmenu-default.navmenu-fixed-left
-  = link_to profile_path(current_user)
+  = link_to user_path(current_user)
     .avatar.padding-1.center
       = image_tag(current_user.pic, class: "profile-photo") if current_user
       | View profile

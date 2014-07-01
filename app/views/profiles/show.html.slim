@@ -5,7 +5,7 @@
       = image_tag(@user.pic, class: "profile-photo")
   .row
     .col-md-8 
-      - if current_user.likes.where(liked_user: @user).count < 1
+      - if current_user.likes.where(liked_user: @user).count < 1 && current_user != @user
         = button_to 'like', user_likes_path(@user), remote: true, class: "btn btn-default"
       - if @match
         = link_to "Send message", match_path(@match)
