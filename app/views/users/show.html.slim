@@ -4,7 +4,7 @@
       h1 = @user.name
       = image_tag(@user.pic, class: "profile-photo")
     .col-md-3.box-pad-1
-      .box-style.bg-purple
+      .box-style.box-shadow-1.bg-white
         = link_to matches_path, class: "no-dec-link"
           h2.center.margin-top-0.white Matches
         - @matches.each do |match|
