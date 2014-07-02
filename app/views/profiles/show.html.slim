@@ -9,6 +9,14 @@
         = button_to 'like', user_likes_path(@user), remote: true, class: "btn btn-default"
       - if @match
         = link_to "Send message", match_path(@match)
+
+    .col-md-8
+      - if @photos
+        -  @photos.each do |photo|
+          = photo.location
+          = image_tag(photo.images.thumbnail.url)
+
+
   / .row
   /   .col-md-8
   /     ul

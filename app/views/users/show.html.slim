@@ -52,6 +52,12 @@
               span.box-pad-1
                 = match.matched_user.name
               = image_tag(match.matched_user.pic, class: "navbar-profile-photo")
-    =  @photos.inspect
+
+    .col-md-8
+      - @photos.each do |photo|
+        = photo.location
+        = image_tag(photo.images.thumbnail.url)
+
+    / =  @photos.inspect
 
    
