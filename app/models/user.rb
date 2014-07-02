@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :activities
   has_many :matches
   has_many :liked_users, :through => :likes
+  has_many :identities
   # has_many :matched_users, :through => :matches
   # has_many :inverse_matches, :class_name => "Match", :foreign_key => "matched_user_id"
   # has_many :inverse_matched_users, :through => :inverse_matches, :source => :user
@@ -66,6 +67,8 @@ class User < ActiveRecord::Base
     # Associate the identity with the user if needed
     if identity.user != user
       identity.user = user
+      identity.token = auth.credentials.token
+      identity.token_expires_at = auth.credentials.expires_at 
       identity.save!
     end
     user

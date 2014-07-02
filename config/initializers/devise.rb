@@ -6,6 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = 'dd908a835f355f6fe7102f25b514fa1483e2998066562c91157fb9c54ad5c3d6846322158ace89c0b16681dbb5b36335a51fc7da37efb513593a0c9d37975c15'
   config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"], :image_size => { width: 200, height: 200 }
+  config.omniauth :instagram, ENV["INSTAGRAM_KEY"], ENV["INSTAGRAM_SECRET"], :image_size => { width: 200, height: 200 }
 
 
   # ==> Mailer Configuration

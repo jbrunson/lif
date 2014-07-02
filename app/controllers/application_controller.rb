@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :friendly_date_format
   helper_method :match_exists?
   helper_method :message_time_format
+  helper_method :instagram_photos
 
    def ensure_signup_complete
     # Ensure we don't go into an infinite loop
@@ -39,6 +40,14 @@ class ApplicationController < ActionController::Base
     else 
       nil
     end
+  end
+
+  def instagram_photos
+    # current_user.identities.where(provider: "instagram").first.refresh_token_if_expired
+    token = current_user.identities.where(provider: "instagram").first.token
+    client = Instagram.client(:access_token => token)
+    user = client.user
+    client.user_recent_media
   end
 
 end

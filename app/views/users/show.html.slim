@@ -1,8 +1,10 @@
 .container.padding-top-7
   .row
-    .col-md-2
-      h1 = @user.name
-      = image_tag(@user.pic, class: "profile-photo")
+    .col-md-2.box-pad-1
+      .box-style-black.bg-white
+        = image_tag(@user.pic, class: "profile-photo")
+        h4.center = @user.name
+        =link_to "Sign in with Instagram", user_omniauth_authorize_path(provider: "instagram")
     .col-md-3.box-pad-1
       .box-style.bg-purple
         = link_to matches_path, class: "no-dec-link"
@@ -50,5 +52,6 @@
               span.box-pad-1
                 = match.matched_user.name
               = image_tag(match.matched_user.pic, class: "navbar-profile-photo")
+    =  @photos.inspect
 
    

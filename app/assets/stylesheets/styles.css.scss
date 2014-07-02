@@ -183,6 +183,10 @@ $success-color: $light-green;
   background-color: #673ab7;
 }
 
+.bg-white {
+  background-color: white;
+}
+
 .pad-right-1 {
   padding-right: 1em;
 }
@@ -208,6 +212,12 @@ $success-color: $light-green;
   @include box-pad-1;
   @include white;
   @include min-height-10;
+}
+
+.box-style-black {
+  @include box-pad-1;
+  @include min-height-10;
+  color: black;
 }
 
 .no-dec-link, .no-dec-link:hover {
