@@ -19,7 +19,13 @@
             .center-icon
               i.fa.fa-google-plus-square.fa-2x.blue-gray.center
     .col-md-9
-      = image_tag()
+      .row
+        .col-md-4.box-pad-1.rounded-corners
+          = image_tag("placeholders/placeholder.jpg", class: "rounded-corners")
+        .col-md-4.box-pad-1.rounded-corners
+          = image_tag("placeholders/placeholder.jpg", class: "rounded-corners")
+        .col-md-4.box-pad-1.rounded-corners
+          = image_tag("placeholders/placeholder.jpg", class: "rounded-corners")
   / .row
   /   .col-md-8 
   /     - if current_user.likes.where(liked_user: @user).count < 1 && current_user != @user
