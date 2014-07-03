@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @activities = @user.activities.current_and_future.limit(5)
     @matches = @user.matches.order(created_at: :desc).limit(5)
     @photos = instagram_photos if @user.identities.any? { |identity| identity.provider == "instagram"  }
+    @nearby_users = nearby_users_from_ip
   end
 
   def finish_signup
