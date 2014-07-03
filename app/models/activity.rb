@@ -1,6 +1,28 @@
 class Activity < ActiveRecord::Base
   belongs_to :user
+  # before_validation :geocode, if: :address_changed?
+  # validate :address_geolocation
+  # geocoded_by :ip_address,
+  #   :latitude => :latitude, :longitude => :longitude
+  # after_validation :geocode
+  reverse_geocoded_by :latitude, :longitude
 
+
+  # geocoded_by :address do |obj, results|
+  #   if geo = results.first
+  #     obj.latitude = geo.latitude
+  #     obj.longitude = geo.longitude
+  #     obj.address = geo.address
+  #   else
+  #     obj.address = nil
+  #   end
+  # end
+
+  # def address_geolocation 
+  #   errors.add(:address, "must be valid") if self.address.nil?
+  # end
+
+  scope :on_now, -> { where("(arrival_date < ? AND departure_date > ?)", DateTime.now, DateTime.now )}
 
   # Check if a given interval overlaps this interval    
   def overlaps?(other)

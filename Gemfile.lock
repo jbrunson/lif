@@ -127,6 +127,7 @@ GEM
       activesupport
       capybara
       i18n
+    geocoder (1.2.2)
     haml (4.0.5)
       tilt
     hashie (2.1.2)
@@ -317,6 +318,7 @@ DEPENDENCIES
   font-awesome-rails
   foreman
   formulaic
+  geocoder
   high_voltage
   jquery-rails
   launchy

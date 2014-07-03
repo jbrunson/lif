@@ -30,6 +30,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'pusher'
 gem 'rails_12factor'
+gem 'geocoder'
 gem 'datetimepicker-rails', :require => 'datetimepicker-rails', :git => 'git://github.com/zpaulovics/datetimepicker-rails.git'
 
 

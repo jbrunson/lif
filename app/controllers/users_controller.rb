@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @activities = @user.activities.current_and_future.limit(5)
     @matches = @user.matches.order(created_at: :desc).limit(5)
+    @nearby_users = nearby_users_from_ip
   end
 
   def finish_signup
