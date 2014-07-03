@@ -75,21 +75,22 @@
               span.box-pad-1
                 = activity.location
               = friendly_date_format(activity.arrival_date)
-    .col-md-3.box-pad-1
-      .box-style.bg-white.box-shadow-1
-        = link_to activity_path(@activities.first), class: "no-dec-link"
-          h2.thin.blue-gray.center.margin-top-0 = @activities.first.location
-    .col-md-3.box-pad-1
-      .box-style.bg-white.rounded-corners.box-shadow-1
-        h2.center.margin-top-0 Weather
-        span.box-pad-1
-          i.wi.wi-day-lightning.fa-5x.center.block
-    .col-md-3.box-pad-1
-      = link_to new_activity_path, class: "no-dec-link"
-        .box-style.box-shadow-1.rounded-corners.bg-white
-          h2.center.margin-top-0.thin.blue-gray Add Activity
-          span.box-pad-1       
-            i.fa.fa-plane.fa-5x.center.block
+    - if @activities.count > 1
+      .col-md-3.box-pad-1
+        .box-style.bg-white.box-shadow-1
+          = link_to activity_path(@activities.first), class: "no-dec-link"
+            h2.thin.blue-gray.center.margin-top-0 = @activities.first.location
+      .col-md-3.box-pad-1
+        .box-style.bg-white.rounded-corners.box-shadow-1
+          h2.center.margin-top-0 Weather
+          span.box-pad-1
+            i.wi.wi-day-lightning.fa-5x.center.block
+      .col-md-3.box-pad-1
+        = link_to new_activity_path, class: "no-dec-link"
+          .box-style.box-shadow-1.rounded-corners.bg-white
+            h2.center.margin-top-0.thin.blue-gray Add Activity
+            span.box-pad-1       
+              i.fa.fa-plane.fa-5x.center.block
 
     .col-md-3.box-pad-1
       .box-style.bg-white.rounded-corners.box-shadow-1
