@@ -317,3 +317,16 @@ h2.profile-list-name {
 .min-h-21 {
   min-height: 21em;
 }
+.light-gray {
+  color: #eee;
+}
+.visuallyhidden {
+  display: none;
+}
+.light-gray.visible-on-hover {
+  transition: all 0.5s;
+  color: #fff;
+}
+.box-style:hover .light-gray.visible-on-hover {
+  color: #eee;
+}
