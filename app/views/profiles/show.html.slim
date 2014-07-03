@@ -1,14 +1,31 @@
 .container.padding-top-7
   .row
-    .col-md-2.col-md-offset-5
-      h1 = @user.name
-      = image_tag(@user.pic, class: "profile-photo")
-  .row
-    .col-md-8 
-      - if current_user.likes.where(liked_user: @user).count < 1 && current_user != @user
-        = button_to 'like', user_likes_path(@user), remote: true, class: "btn btn-default"
-      - if @match
-        = link_to "Send message", match_path(@match)
+    .col-md-3.box-pad-1
+      .box-style.box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1.m-bottom-1.min-h-21
+        = image_tag(@user.pic, class: "profile-photo")
+        h1.blue-gray.center = @user.name
+        .m-bottom-2.center.bottom.w-100
+          - if current_user.likes.where(liked_user: @user).count < 1 && current_user != @user
+            = button_to 'Connect', user_likes_path(@user), remote: true, class: "btn btn-default upcase btn-blue center-abs"
+      .box-pad-1.box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
+        .row
+          .col-xs-4
+            .center-icon
+              i.fa.fa-instagram.fa-2x.blue-gray.center
+          .col-xs-4
+            .center-icon
+              i.fa.fa-facebook.fa-2x.blue-gray.center
+          .col-xs-4
+            .center-icon
+              i.fa.fa-google-plus-square.fa-2x.blue-gray.center
+    .col-md-9
+      = image_tag()
+  / .row
+  /   .col-md-8 
+  /     - if current_user.likes.where(liked_user: @user).count < 1 && current_user != @user
+  /       = button_to 'like', user_likes_path(@user), remote: true, class: "btn btn-default"
+  /     - if @match
+  /       = link_to "Send message", match_path(@match)
   / .row
   /   .col-md-8
   /     ul

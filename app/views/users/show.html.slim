@@ -1,23 +1,38 @@
 .container.padding-top-7
   .row
-    .col-md-2
-      h1 = @user.name
-      = image_tag(@user.pic, class: "profile-photo")
-    .col-md-3.box-pad-1
-      .box-style.box-shadow-1.bg-white
-        = link_to matches_path, class: "no-dec-link"
-          h2.center.margin-top-0.white Matches
-        - @matches.each do |match|
-          .m-bottom-1
-            = link_to profile_path(match.matched_user), class: "white no-dec-link"
-              span.box-pad-1
-                = match.matched_user.name
-              = image_tag(match.matched_user.pic, class: "navbar-profile-photo")
+    / .col-md-2
+    /   h1 = @user.name
+    /   = image_tag(@user.pic, class: "profile-photo")
+    / .col-md-3.box-pad-1
+    /   .box-style.box-shadow-1.bg-white.rounded-corners
+    /     = link_to matches_path, class: "no-dec-link"
+    /       h2.center.margin-top-0.thin.blue-gray Matches
+    /     - @matches.each do |match|
+    /       .m-bottom-1
+    /         = link_to profile_path(match.matched_user), class: "white no-dec-link"
+    /           span.box-pad-1
+    /             = match.matched_user.name
+    /           = image_tag(match.matched_user.pic, class: "navbar-profile-photo")
+    - @matches.each do |match|
+        .col-md-3.box-pad-1
+          .box-style.box-shadow-1.bg-white.rounded-corners.min-h-29.relative.pad-bottom-1
+            = link_to profile_path(match.matched_user), class: "white no-dec-link margin-b-1"
+              .avatar.margin-b-1
+                = image_tag(match.matched_user.pic)
+            .m-bottom-1
+              = link_to profile_path(match.matched_user), class: "blue-gray no-dec-link center block"
+                  h2.profile-list-name
+                    = match.matched_user.name
+            .m-bottom-1
+              p.blue-gray.center This is some placeholder text related to the user: interests, occupation, time in city...
+            .m-bottom-2.center.bottom.w-100
+              = link_to "Profile", profile_path(match.matched_user), class: "btn btn-default upcase btn-blue center-abs"
+                
 
     .col-md-3.box-pad-1
-      .box-style.bg-green
+      .box-style.bg-white.rounded-corners.box-shadow-1
         = link_to activities_path, class: "no-dec-link"
-          h2.center.margin-top-0.white Activities
+          h2.center.margin-top-0.thin.blue-gray Activities
         - @activities.each do |activity|
           .activity
             = link_to activity_path(activity.id), class: "white no-dec-link"
@@ -25,25 +40,25 @@
                 = activity.location
               = friendly_date_format(activity.arrival_date)
     .col-md-3.box-pad-1
-      .box-style.bg-green
+      .box-style.bg-white.box-shadow-1
         = link_to activity_path(@activities.first), class: "no-dec-link"
-          h2.white.center.margin-top-0 = @activities.first.location
+          h2.thin.blue-gray.center.margin-top-0 = @activities.first.location
     .col-md-3.box-pad-1
-      .box-style.bg-purple
+      .box-style.bg-white.rounded-corners.box-shadow-1
         h2.center.margin-top-0 Weather
         span.box-pad-1
           i.wi.wi-day-lightning.fa-5x.center.block
     .col-md-3.box-pad-1
       = link_to new_activity_path, class: "no-dec-link"
-        .box-style.bg-purple
-          h2.center.margin-top-0 Add Activity
+        .box-style.box-shadow-1.rounded-corners.bg-white
+          h2.center.margin-top-0.thin.blue-gray Add Activity
           span.box-pad-1       
             i.fa.fa-plane.fa-5x.center.block
 
     .col-md-3.box-pad-1
-      .box-style.bg-green
+      .box-style.bg-white.rounded-corners.box-shadow-1
         = link_to matches_path, class: "no-dec-link"
-          h2.center.margin-top-0.white Users nearby
+          h2.center.margin-top-0.thin.blue-gray Users nearby
         - @matches.each do |match|
           .m-bottom-1
             = link_to profile_path(match.matched_user), class: "white no-dec-link"
