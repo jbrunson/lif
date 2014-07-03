@@ -26,6 +26,11 @@
           = image_tag("placeholders/placeholder.jpg", class: "rounded-corners")
         .col-md-4.box-pad-1.rounded-corners
           = image_tag("placeholders/placeholder.jpg", class: "rounded-corners")
+        - if @photos
+          - @photos.each do |photo|
+            .col-md-4.box-pad-1.rounded-corners
+              = photo.location
+              = image_tag(photo.images.thumbnail.url, class: "rounded-corners")
   / .row
   /   .col-md-8 
   /     - if current_user.likes.where(liked_user: @user).count < 1 && current_user != @user
