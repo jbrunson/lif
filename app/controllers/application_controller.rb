@@ -51,12 +51,15 @@ class ApplicationController < ActionController::Base
   end
 
   def nearby_users_from_ip
-    # result = request.location
-
-    # Activity.near([result.lat, result.lon], 50)
-    lat = 49.2500
-    lon = 123.1000
-    activities = Activity.near([lat, lon], 50).includes(:user).on_now
+    result = request.location
+    if result
+      activities = Activity.near([result.latitude, result.longitude], 50)
+    else
+      #vancouver
+      lat = 49.2500
+      lon = 123.1000
+      activities = Activity.near([lat, lon], 50).includes(:user).on_now
+    end
 
     users = activities.map(&:user)
   end

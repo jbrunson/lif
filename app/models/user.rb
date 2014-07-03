@@ -4,9 +4,11 @@ class User < ActiveRecord::Base
   has_many :matches
   has_many :liked_users, :through => :likes
   has_many :identities
-  # geocoded_by :ip_address,
-  #   :latitude => :latitude, :longitude => :longitude
+  geocoded_by :current_sign_in_ip,
+    :latitude => :last_latitude, :longitude => :last_longitude
   # after_validation :geocode
+  before_validation :geocode, if: :current_sign_in_ip_changed?
+
   # has_many :matched_users, :through => :matches
   # has_many :inverse_matches, :class_name => "Match", :foreign_key => "matched_user_id"
   # has_many :inverse_matched_users, :through => :inverse_matches, :source => :user
