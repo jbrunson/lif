@@ -1,26 +1,26 @@
 class Activity < ActiveRecord::Base
   belongs_to :user
-  # before_validation :geocode, if: :address_changed?
-  # validate :address_geolocation
+  before_validation :geocode, if: :location_changed?
+  validate :address_geolocation
   # geocoded_by :ip_address,
   #   :latitude => :latitude, :longitude => :longitude
   # after_validation :geocode
   reverse_geocoded_by :latitude, :longitude
 
 
-  # geocoded_by :address do |obj, results|
-  #   if geo = results.first
-  #     obj.latitude = geo.latitude
-  #     obj.longitude = geo.longitude
-  #     obj.address = geo.address
-  #   else
-  #     obj.address = nil
-  #   end
-  # end
+  geocoded_by :location do |obj, results|
+    if geo = results.first
+      obj.latitude = geo.latitude
+      obj.longitude = geo.longitude
+      obj.location = geo.address
+    else
+      obj.location = nil
+    end
+  end
 
-  # def address_geolocation 
-  #   errors.add(:address, "must be valid") if self.address.nil?
-  # end
+  def address_geolocation 
+    errors.add(:location, "must be valid") if self.location.nil?
+  end
 
   scope :on_now, -> { where("(arrival_date < ? AND departure_date > ?)", DateTime.now, DateTime.now )}
 
