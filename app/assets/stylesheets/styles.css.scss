@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   background-color: #f0f3f6;
+  font-family: Roboto,Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 $base-font-size: 1em;
 $base-line-height: $base-font-size * 1.5;
@@ -103,7 +104,7 @@ $success-color: $light-green;
   border: 0;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: #00bcd4;
+  background-color: #fff;
 }
 .avatar {
   
@@ -114,13 +115,19 @@ $success-color: $light-green;
 .center {
   text-align: center;
 }
-
+.margin-b-1 {
+  margin-bottom: 1em; 
+}
 .avatar img {
   display: block;
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   margin: 0 auto;
+}
+h2.profile-list-name {
+  font-size: 1.8em;
+  line-height: 1.8em;
 }
 .navbar {
   position: relative;
@@ -129,10 +136,18 @@ $success-color: $light-green;
   border: 0;
 }
 .navbar-default {
-  background-color: #00bcd4;
+  background-color: #fff;
 }
 .canvas {
   padding: 0;
+}
+
+.box-shadow-1 {
+  box-shadow: 0 6px 10px -10px #555;
+}
+
+.rounded-corners {
+  border-radius: 3px;
 }
 
 .new-activity-form-container {
@@ -158,6 +173,7 @@ $success-color: $light-green;
 .navbar-profile-photo {
   width: 25px;
   height: 25px;
+  border-radius: 50%;
 }
 
 .min-height-10 {
@@ -227,7 +243,39 @@ $success-color: $light-green;
 .m-bottom-1 {
   margin-bottom: 1em;
 }
+.m-bottom-2 {
+  margin-bottom: 2em;
+}
+.upcase {
+  text-transform: uppercase;
+}
+.btn-blue {
+  background-color: #21b8c6;
+  border: none;
+  color: #fff;
+  padding: 0.5em 1.5em;
+}
 
+.min-h-29 {
+  min-height: 29em;
+}
+.relative {
+  position: relative;
+}
+.bottom {
+  position: absolute;
+  bottom: 0;
+}
+.center-abs {
+  left:50%;
+  margin-left: -2em;
+}
+.pad-bottom-1{
+  padding-bottom: 1em;
+}
+.w-100 {
+  width: 100%;
+}
 .my-message {
   float: right;
   @include bg-light-green;
@@ -245,3 +293,27 @@ $success-color: $light-green;
   .box-pad-p5 {
     padding: 0.5em;
   }
+  .bg-white {
+    background-color: #fff;
+  }
+@media (min-width: 768px) {
+  .navbar-nav.navbar-right:last-child {
+    margin-right: 0;
+  }
+}
+.thin {
+  font-weight: 300;
+}
+.blue-gray {
+  color: #475965;
+}
+.center-icon {
+  display: inline-block;
+  width: 100%
+}
+.center-icon .center {
+  display: block;
+}
+.min-h-21 {
+  min-height: 21em;
+}

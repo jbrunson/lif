@@ -9,7 +9,7 @@ html
       = title
     / link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"
     link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"
-
+    link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
     
@@ -22,24 +22,26 @@ html
     = render 'application/main_navigation'
 
     .canvas#main role="main"
-      header.navbar.navbar-static-top.bs-docs-nav.blue-1#top role="banner"
-        .container
-          .row
-            .navbar.navbar-default.navbar-fixed-top.navbar-nav.navbar
-              button.navbar-toggle.no-border data-canvas=".canvas" data-recalc="false" data-target=".navmenu" data-toggle="offcanvas" type="button" 
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
+      .container
+        nav.navbar.navbar-default.navbar-static-top.bs-docs-nav.bg-white.box-shadow-1.rounded-corners#top role="navigation"
+          .navbar-header
+            button.navbar-toggle.no-border data-canvas=".canvas" data-recalc="false" data-target=".navmenu" data-toggle="offcanvas" type="button" 
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          .navbar-collapse.collapse
             ul.nav.navbar-nav.navbar-right
               li
                 = link_to user_matches_path current_user
                   i.fa.fa-comment.fa-lg.float-right
               li
                 = link_to user_path(current_user)
-                  span.pad-right-1.white
-                    = current_user.name
+                  span.pad-right-1
+                    / = current_user.name
                   = image_tag(current_user.pic, class: "navbar-profile-photo")
-              
+              li
+                = link_to destroy_user_session_path
+                  i.fa.fa-sign-out.fa-lg
 
 
       = render 'application/flashes'

@@ -8,8 +8,5 @@
               = match.matched_user.name
             .col-md-2
               = image_tag(match.matched_user.pic, class: "navbar-profile-photo")
-            time = time_ago_in_words(Message.for_match(match).order("created_at DESC").limit(1).first.created_at) + " ago"
-
-          
-            
-          
+            - if Message.for_match(match).count > 0
+              time = time_ago_in_words(Message.for_match(match).order("created_at DESC").limit(1).first.created_at) + " ago"
