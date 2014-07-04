@@ -89,4 +89,10 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: 'lif.com' }
+
+  require 'pusher'
+  Pusher.logger = Rails.logger
+  Pusher.app_id = ENV['PUSHER_APP_ID']
+  Pusher.key = ENV['PUSHER_KEY']
+  Pusher.secret = ENV['PUSHER_SECRET']
 end
