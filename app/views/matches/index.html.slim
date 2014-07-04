@@ -1,12 +1,15 @@
 .container.padding-top-7
-  .row
-    .col-md-4
-      - @matches.each do |match|
-        = link_to user_match_path(current_user.id, match.id), class: "no-dec-link"
-          .row.box-pad-p5
-            .col-md-10
-              = match.matched_user.name
-            .col-md-2
-              = image_tag(match.matched_user.pic, class: "navbar-profile-photo")
-            - if Message.for_match(match).count > 0
-              time = time_ago_in_words(Message.for_match(match).order("created_at DESC").limit(1).first.created_at) + " ago"
+  - @matches.each do |match|
+    .row
+      .col-md-12.m-bottom-1
+        .box-style.box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
+          = link_to user_match_path(current_user.id, match.id), class: "no-dec-link"
+            .col-md-3.avatar.margin-b-1
+              = image_tag(match.matched_user.pic, class: "left")
+            .col-md-9
+              .row.box-pad-p5
+                .col-md-10
+                  = match.matched_user.name
+                .col-md-2
+                - if Message.for_match(match).count > 0
+                  time = time_ago_in_words(Message.for_match(match).order("created_at DESC").limit(1).first.created_at) + " ago"
