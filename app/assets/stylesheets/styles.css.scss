@@ -14,6 +14,11 @@ $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
 
+$light-gray-2: #e7ecf1;
+$dark-gray-2: #475965;
+
+$focus-blue: #21b8c6;
+
 // Flash Colors
 $alert-color: $light-yellow;
 $error-color: $light-red;
@@ -195,6 +200,8 @@ h2.profile-list-name {
   background-color: #CCFFCC;
 }
 
+
+
 .bg-purple {
   background-color: #673ab7;
 }
@@ -278,14 +285,15 @@ h2.profile-list-name {
 }
 .my-message {
   float: right;
-  @include bg-light-green;
+  background-color: $light-gray-2;
   padding: 0.7em;
   margin-bottom: 0.7em;
+  color: $dark-gray-2;
 }
 
 .their-message {
   float: left;
-  @include bg-gray;
+  background-color: $focus-blue;
   padding: 0.7em;
   margin-bottom: 0.7em;
 }
