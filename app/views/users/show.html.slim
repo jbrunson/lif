@@ -110,7 +110,7 @@
           = image_tag(photo.images.thumbnail.url)
 
     / =  @photos.inspect
-
+    -if @nearby_users
       - @nearby_users.each do |user|
         
         li
