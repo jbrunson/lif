@@ -103,10 +103,11 @@
                 = match.matched_user.name
               = image_tag(match.matched_user.pic, class: "navbar-profile-photo")
 
-    .col-md-8
-      - @photos.each do |photo|
-        = photo.location
-        = image_tag(photo.images.thumbnail.url)
+    - if @photos 
+      .col-md-8
+        - @photos.each do |photo|
+          = photo.location
+          = image_tag(photo.images.thumbnail.url)
 
     / =  @photos.inspect
 
