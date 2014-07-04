@@ -51,8 +51,15 @@ class ApplicationController < ActionController::Base
     client.user_recent_media
   end
 
+  def instagram_photos_for(user)
+    # current_user.identities.where(provider: "instagram").first.refresh_token_if_expired
+    token = user.identities.where(provider: "instagram").first.token
+    client = Instagram.client(:access_token => token)
+    client.user_recent_media
+  end
+
   def nearby_users_from_ip
-    result = request.location
+    result = request ? request.location : nil
     if result
       # users = User.near([result.latitude, result.longitude], 50)
       lat = 49.2500

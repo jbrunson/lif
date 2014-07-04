@@ -22,9 +22,9 @@
         h1.blue-gray.center = @user.name
         .m-bottom-2.center.bottom.w-100
           - if current_user.likes.where(liked_user: @user).count < 1 && current_user != @user
-            = button_to 'Connect', user_likes_path(@user), remote: true, class: "btn btn-default upcase btn-blue center-abs"
+            = button_to 'Like', user_likes_path(@user), remote: true, class: "btn btn-default upcase btn-blue center-abs"
           - else
-            .btn.btn-default.upcase.btn-blue.center-abs Connected
+            .btn.btn-default.upcase.btn-blue.center-abs Liked
 
             / .btn-group
             /   a.btn.btn-default.dropdown-toggle data-toggle="dropdown"

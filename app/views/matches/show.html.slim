@@ -1,25 +1,37 @@
 .container.padding-top-7
   .row
-    .col-md-6.box-pad-1
-      .box-style.box-shadow-1.bg-white.rounded-corners.min-h-29.relative.pad-bottom-1
-        .message-history.box-pad-1
-          - @history.each do |message|
-            .row
-              div class=(message.sender == current_user ? 'my-message rounded-corners'  : 'their-message rounded-corners')
-                p = message.body
-                .right
-                  time.small.pad-right-1 = message_time_format(message.created_at)
-                  = image_tag(message.sender.pic, class: "navbar-profile-photo")
-  .row
+    .col-md-6.box-pad-1.hidden-sm.hidden-xs
+      - if @photos 
+        .col-md-12
+          - @photos.each do |photo|
+            = photo.location
+            = image_tag(photo.images.thumbnail.url)
     .col-md-6
-      = simple_form_for [@current_user, @match, @message], remote: true do |f|
-        = f.hidden_field :recipient_id, :value => @matched_user.id
-        .row
-          .col-md-10
-            = f.text_area :body, class: "form-control"
-          .col-md-2  
-            = f.submit 'Send', class: "btn btn-default right upcase btn-blue"
+      .row
+        .col-md-12.box-pad-1
+          .box-style.box-shadow-1.bg-white.rounded-corners.min-h-29.relative.pad-bottom-1
+            .message-history.box-pad-1
+              - @history.each do |message|
+                .row
+                  div class=(message.sender == current_user ? 'my-message rounded-corners'  : 'their-message rounded-corners')
+                    p = message.body
+                    .right
+                      time.small.pad-right-1 = message_time_format(message.created_at)
+                      = image_tag(message.sender.pic, class: "navbar-profile-photo")
+      .row  
+        .col-md-12
+          = simple_form_for [@current_user, @match, @message], remote: true do |f|
+            = f.hidden_field :recipient_id, :value => @matched_user.id
+            .row
+              .col-md-10
+                = f.text_area :body, class: "form-control"
+              .col-md-2  
+                = f.submit 'Send', class: "btn btn-default right upcase btn-blue"
+
   #conversation-id.hide
     =current_match.conversation.secure_identifier
   #current-user-id.hide
     =current_user.id
+
+
+  
