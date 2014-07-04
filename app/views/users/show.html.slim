@@ -36,15 +36,15 @@
         .box-style.box-shadow-1.bg-white.rounded-corners.min-h-29.relative.pad-bottom-1
           = link_to user.name, profile_path(user), class: "white no-dec-link margin-b-1"
             .avatar.margin-b-1
-              = image_tag(match.matched_user.pic)
+              = image_tag(user.pic)
           .m-bottom-1
-            = link_to profile_path(match.matched_user), class: "blue-gray no-dec-link center block"
+            = link_to profile_path(user), class: "blue-gray no-dec-link center block"
                 h2.profile-list-name
-                  = match.matched_user.name
+                  = user.name
           .m-bottom-1
             p.blue-gray.center This is some placeholder text related to the user: interests, occupation, time in city...
           .m-bottom-2.center.bottom.w-100
-            = link_to "Profile", profile_path(match.matched_user), class: "btn btn-default upcase btn-blue center-abs"
+            = link_to "Profile", profile_path(user), class: "btn btn-default upcase btn-blue center-abs"
 
 
 
