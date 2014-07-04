@@ -11,8 +11,9 @@ class LikesController < ApplicationController
 
     if @like.save
       #check for match
-      if mutual_likes?(liked_user, current_user)
-        conversation = Conversation.new.save
+      if Like.where(user_id: @like.liked_user, liked_user: current_user.id).size > 0
+        conversation = Conversation.new
+        conversation.save
 
         match = current_user.matches.build(matched_user: liked_user, conversation: conversation)
         match.save

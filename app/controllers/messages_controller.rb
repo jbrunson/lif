@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
       
       # Send a Pusher notification
       # Pusher['private-'+params[:message][:recipient_id]].trigger('new_message', {:from => current_user.name, :body => message.body})
-      Pusher[current_match.conversation.secure_identifier].trigger('new_message', {:from => current_user.name, :message_body => message.body, :created_at => message.created_at})
+      Pusher[current_match.conversation.secure_identifier].trigger('new_message', {:from => current_user.name, :message_body => message.body, :created_at => message.created_at, :pic => current_user.pic, :user_id => current_user.id })
       render json: message
       # Pusher['private-'+params[:message][:recipient_id]].trigger('new_message', {:from => current_user.name, :subject => message.subject})
       

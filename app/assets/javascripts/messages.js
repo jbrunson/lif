@@ -7,6 +7,27 @@ $(function() {
       var channel = pusher.subscribe(match_id);
       channel.bind('new_message', function(data) {
         console.log(data);
+        var message = $('<div></div>').addClass('row');
+        console.log(message);
+        var div = $('<div></div>');
+        var par = $('<p></p>');
+        par.text(data.message_body);
+        console.log(div);
+        var pic = $('<img>');
+        pic.attr('src', data.pic);
+        var time = $('<time></time>');
+        time.addClass('small pad-right-1');
+        time.text(data.created_at);
+        if ($('#current-user-id').text() === data.user_id) {
+          div.addClass('my-message rounded-corners');
+        } else {
+          div.addClass('their-message rounded-corners');
+        }
+        div.append(par);
+        message.append(div);
+        console.log(message);
+        $('.message-history').append(message);
+
         // msg = 
         // $('.message-history').append(msg);
         // dom_notify(msg);
