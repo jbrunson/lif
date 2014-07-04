@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   helper_method :match_exists?
   helper_method :message_time_format
   helper_method :instagram_photos
+  helper_method :nearby_users_from_ip
 
    def ensure_signup_complete
     # Ensure we don't go into an infinite loop
