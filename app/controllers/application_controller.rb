@@ -64,4 +64,8 @@ class ApplicationController < ActionController::Base
     users = activities.map(&:user)
   end
 
+  def mutual_likes?(user1, user2)
+    Like.where( user_id: user1.id, liked_user: user2.id ).size > 0
+  end
+
 end

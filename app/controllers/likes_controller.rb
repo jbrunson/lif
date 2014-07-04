@@ -5,16 +5,18 @@ class LikesController < ApplicationController
   end
 
 
-   def create
+  def create
     liked_user = User.find(params[:user_id])
     @like = current_user.likes.build(liked_user: liked_user)
 
     if @like.save
       #check for match
-      if Like.where( user_id: @like.liked_user, liked_user: current_user.id ).size > 0
-        match = current_user.matches.build(matched_user: liked_user)
+      if mutual_likes?(liked_user, current_user)
+        conversation = Conversation.new.save
+
+        match = current_user.matches.build(matched_user: liked_user, conversation: conversation)
         match.save
-        other_match = liked_user.matches.build(matched_user: current_user)
+        other_match = liked_user.matches.build(matched_user: current_user, conversation: conversation)
         other_match.save
       end
       render :nothing => true, :status => :ok
@@ -22,5 +24,4 @@ class LikesController < ApplicationController
       #do something
     end
   end
-
 end

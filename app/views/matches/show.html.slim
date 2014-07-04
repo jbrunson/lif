@@ -19,4 +19,5 @@
             = f.text_area :body, class: "form-control"
           .col-md-2  
             = f.submit 'Send', class: "btn btn-default right upcase btn-blue"
-
+  #conversation-id.hide
+    =current_match.conversation.secure_identifier

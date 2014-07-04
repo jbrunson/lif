@@ -1,12 +1,14 @@
 $(function() {
       var pusher = new Pusher('be501751f2a6e46bddb3');
-      var url = window.location.href;
-      var url_array = url.split('/');
-      var match_id = url_array[url_array.length-1];
+      // var url = window.location.href;
+      // var url_array = url.split('/');
+      var match_id = $('#conversation-id').text();
+ 
       var channel = pusher.subscribe(match_id);
       channel.bind('new_message', function(data) {
-        msg = data.from + ' has sent you a message: ' + data.message_body;
-        $('.message-history').append(msg);
+        console.log(data);
+        // msg = 
+        // $('.message-history').append(msg);
         // dom_notify(msg);
         // title_notify(msg);
         // if (window.webkitNotifications) { webkit_notify(msg); }
