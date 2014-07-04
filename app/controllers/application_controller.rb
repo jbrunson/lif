@@ -54,16 +54,33 @@ class ApplicationController < ActionController::Base
   def nearby_users_from_ip
     result = request.location
     if result
-      activities = Activity.near([result.latitude, result.longitude], 50)
+      # users = User.near([result.latitude, result.longitude], 50)
+      lat = 49.2500
+      lon = 123.1000
+      users = User.near([lat, lon], 50)
     else
       #vancouver
       lat = 49.2500
       lon = 123.1000
-      activities = Activity.near([lat, lon], 50).includes(:user).on_now
+      users = User.near([lat, lon], 50)
     end
 
-    users = activities.map(&:user)
+    users
   end
+
+  # def nearby_users_from_ip
+  #   result = request.location
+  #   if result
+  #     activities = Activity.near([result.latitude, result.longitude], 50)
+  #   else
+  #     #vancouver
+  #     lat = 49.2500
+  #     lon = 123.1000
+  #     activities = Activity.near([lat, lon], 50).includes(:user).on_now
+  #   end
+
+  #   users = activities.map(&:user)
+  # end
 
   def mutual_likes?(user1, user2)
     Like.where( user_id: user1.id, liked_user: user2.id ).size > 0
