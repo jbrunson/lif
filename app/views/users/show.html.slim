@@ -74,7 +74,7 @@
     .col-md-3.box-pad-1
       .box-style.bg-white.rounded-corners.box-shadow-1
         = link_to activities_path, class: "no-dec-link"
-          h2.center.margin-top-0.thin.blue-gray Activities
+          h2.center.margin-top-0.thin.blue-gray Trips
         - @activities.each do |activity|
           .activity
             = link_to activity_path(activity.id), class: "blue-gray no-dec-link"
@@ -94,7 +94,7 @@
     .col-md-3.box-pad-1
       = link_to new_activity_path, class: "no-dec-link"
         .box-style.box-shadow-1.rounded-corners.bg-white
-          h2.center.margin-top-0.thin.blue-gray Add Activity
+          h2.center.margin-top-0.thin.blue-gray Add Trip
           span.box-pad-1       
             i.fa.fa-plane.fa-5x.center.block
 
