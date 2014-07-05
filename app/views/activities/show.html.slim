@@ -11,4 +11,11 @@
                   = match.name
               td = image_tag(match.pic, class: "profile-photo")
 
+          - @nearby_users.each do |user|
+            tr
+              td
+                = link_to(profile_path(user))
+                  = user.name
+              td = image_tag(user.pic, class: "profile-photo")
+
           

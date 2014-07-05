@@ -34,6 +34,8 @@
     - @nearby_users.each do |user|
       .col-md-3.box-pad-1
         .box-style.box-shadow-1.bg-white.rounded-corners.min-h-29.relative.pad-bottom-1
+          = link_to 
+            i.fa.fa-times.light-gray.visible-on-hover
           = link_to profile_path(user), class: "white no-dec-link margin-b-1"
 
             .avatar.margin-b-1
@@ -107,11 +109,11 @@
     /             = match.matched_user.name
     /           = image_tag(match.matched_user.pic, class: "navbar-profile-photo")
 
-    - if @photos 
-      .col-md-8
-        - @photos.each do |photo|
-          = photo.location
-          = image_tag(photo.images.thumbnail.url)
+    / - if @photos 
+    /   .col-md-8
+    /     - @photos.each do |photo|
+    /       = photo.location
+    /       = image_tag(photo.images.thumbnail.url)
 
     / / =  @photos.inspect
     / -if @nearby_users

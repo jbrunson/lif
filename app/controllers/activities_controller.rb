@@ -1,4 +1,5 @@
 class ActivitiesController < ActionController::Base
+  include UserHelpers
   layout "application"
   before_filter :authenticate_user!
 
@@ -54,9 +55,16 @@ class ActivitiesController < ActionController::Base
     end
 
     @possible_matches = users.reject{ |user| user == current_user }
+    @nearby_users = nearby_users_from_location(current_activity).limit(10)
   end
 
+  def current_activity
+    @activity ||= Activity.find params[:id]
+  end
 
+  def friendly_date_format(date)
+    date.strftime("%b %d, %Y")
+  end
 
   private
 

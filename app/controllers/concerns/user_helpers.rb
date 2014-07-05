@@ -1,16 +1,8 @@
-class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
-  helper :all
+  module UserHelpers 
 
-  helper_method :current_match, :friendly_date_format,
-   :match_exists?,
-   :message_time_format,
-   :instagram_photos,
-   :nearby_users_from_ip
 
-   def ensure_signup_complete
+
+  def ensure_signup_complete
     # Ensure we don't go into an infinite loop
     return if action_name == 'finish_signup'
 
@@ -73,6 +65,10 @@ class ApplicationController < ActionController::Base
     end
 
     users
+  end
+
+  def nearby_users_from_location(location)
+    User.near([location.latitude, location.longitude], 50)
   end
 
   # def nearby_users_from_ip
