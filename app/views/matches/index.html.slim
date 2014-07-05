@@ -1,15 +1,16 @@
 .container.padding-top-7
   - @matches.each do |match|
     .row
-      .col-md-12.m-bottom-1
-        .box-style.box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
+      .col-md-12.box-pad-1
+        .box-style.box-shadow-1.bg-white.rounded-corners.relative
           = link_to user_match_path(current_user.id, match.id), class: "no-dec-link"
-            .col-md-3.avatar.margin-b-1
-              = image_tag(match.matched_user.pic, class: "left")
+            .col-md-2.avatar.margin-b-1
+              = image_tag(match.matched_user.pic, class: "m-bottom-1 left")
             .col-md-9
               .row.box-pad-p5
                 .col-md-10
-                  = match.matched_user.name
-                .col-md-2
-                - if Message.for_match(match).count > 0
-                  time = time_ago_in_words(Message.for_match(match).order("created_at DESC").limit(1).first.created_at) + " ago"
+                  h2.blue-gray = match.matched_user.name
+              .row
+                .col-md-10
+                  - if Message.for_match(match).count > 0
+                    time = time_ago_in_words(Message.for_match(match).order("created_at DESC").limit(1).first.created_at) + " ago"
