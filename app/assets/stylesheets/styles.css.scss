@@ -52,6 +52,8 @@ $success-color: $light-green;
   color: #fff;
 }
 
+
+
 #flash-alert {
   @include flash($alert-color);
 }
@@ -349,4 +351,8 @@ h2.profile-list-name {
 }
 .box-style:hover .light-gray.visible-on-hover {
   color: #eee;
+}
+.add-icon {
+  margin-top: -20px;
+  padding-right: 9px;
 }
