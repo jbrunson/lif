@@ -1,4 +1,13 @@
 .container.padding-top-7
+  .row
+    .col-md-12.box-pad-1
+      .box-style-2.box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
+        h2.blue-gray.margin-0.center Activities
+        =link_to new_activity_path
+          i.fa.fa-plus.fa-lg.blue-gray.right.add-icon
+    / .col-md-12.box-pad-1
+    /   .box-style-2.box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
+    /     i.fa.fa-plane.fa-lg.blue-gray
   - @activities.each do |activity|
     .row
       .col-md-12.m-bottom-1

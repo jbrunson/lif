@@ -2,7 +2,7 @@
   - @matches.each do |match|
     .row
       .col-md-12.box-pad-1
-        .box-style.box-shadow-1.bg-white.rounded-corners.relative
+        .box-style.box-shadow-1.blue-1.rounded-corners.relative
           = link_to user_match_path(current_user.id, match.id), class: "no-dec-link"
             .col-md-2.avatar.margin-b-1
               = image_tag(match.matched_user.pic, class: "m-bottom-1 left")
