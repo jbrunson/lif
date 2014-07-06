@@ -5,7 +5,8 @@
         .col-md-12
           - @photos.each do |photo|
             = photo.location
-            = image_tag(photo.images.thumbnail.url)
+            .col-md-3.box-pad-1
+              = image_tag(photo.images.thumbnail.url)
     .col-md-6
       .row
         .col-md-12.box-pad-1

@@ -33,11 +33,11 @@
     - if @nearby_users.length > 0
       .col-md-12.box-pad-1
         .box-style-2.box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
-          h1.center.blue-gray.margin-0 Nearby
+          h1.center.blue-gray.margin-0 Nearby Users
     - @nearby_users.each do |user|
       .col-md-3.box-pad-1
         .box-style.box-shadow-1.bg-white.rounded-corners.min-h-29.relative.pad-bottom-1
-          = link_to 
+          a.dislike-user 
             i.fa.fa-times.light-gray.visible-on-hover
           = link_to profile_path(user), class: "white no-dec-link margin-b-1"
 
@@ -51,7 +51,7 @@
             p.blue-gray.center This is some placeholder text related to the user: interests, occupation, time in city...
           .m-bottom-2.center.bottom.w-100
             - if current_user.likes.where(liked_user: user).count < 1 && current_user != user
-              = button_to 'Like', user_likes_path(user), remote: true, class: "btn btn-default upcase btn-blue center-abs"
+              = button_to 'Like', user_likes_path(user), remote: true, class: "btn btn-default upcase btn-blue center-abs like-button"
             - else
               .btn.btn-default.upcase.btn-blue.center-abs Liked
 
@@ -73,32 +73,7 @@
     /         .m-bottom-2.center.bottom.w-100
     /           = link_to "Profile", profile_path(match.matched_user), class: "btn btn-default upcase btn-blue center-abs"
 
-    .col-md-3.box-pad-1
-      .box-style.bg-white.rounded-corners.box-shadow-1
-        = link_to activities_path, class: "no-dec-link"
-          h2.center.margin-top-0.thin.blue-gray Trips
-        - @activities.each do |activity|
-          .activity
-            = link_to activity_path(activity.id), class: "blue-gray no-dec-link"
-              span.box-pad-1
-                = activity.location
-              = friendly_date_format(activity.arrival_date)
-    - if @activities.count > 1
-      .col-md-3.box-pad-1
-        .box-style.bg-white.box-shadow-1
-          = link_to activity_path(@activities.first), class: "no-dec-link"
-            h2.thin.blue-gray.center.margin-top-0 = @activities.first.location
-      .col-md-3.box-pad-1
-        .box-style.bg-white.rounded-corners.box-shadow-1
-          h2.center.margin-top-0 Weather
-          span.box-pad-1
-            i.wi.wi-day-lightning.fa-5x.center.block
-    .col-md-3.box-pad-1
-      = link_to new_activity_path, class: "no-dec-link"
-        .box-style.box-shadow-1.rounded-corners.bg-white
-          h2.center.margin-top-0.thin.blue-gray Add Trip
-          span.box-pad-1       
-            i.fa.fa-plane.fa-5x.center.block
+  
 
     / .col-md-3.box-pad-1
     /   .box-style.bg-white.rounded-corners.box-shadow-1
