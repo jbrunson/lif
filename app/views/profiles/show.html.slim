@@ -19,7 +19,7 @@
                 li
                   a href="#"  Separated link
         = image_tag(@user.pic, class: "profile-photo")
-        h1.blue-gray.center = @user.name
+        h2.blue-gray.center = @user.name
         .m-bottom-2.center.bottom.w-100
           - if current_user.likes.where(liked_user: @user).count < 1 && current_user != @user
             = button_to 'Like', user_likes_path(@user), remote: true, class: "btn btn-default upcase btn-blue center-abs"
@@ -42,9 +42,9 @@
             /     li.divider
             /     li
             /       a href="#"  Separated link
-      .box-pad-1.box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
-        .row
-          .btn.btn-default.upcase.btn-blue.center-abs Chat
+      / .box-pad-1.box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
+      /   .row
+      /     .btn.btn-default.upcase.btn-blue.center-abs Chat
       .box-pad-1.box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
         .row
           .col-xs-4
@@ -68,17 +68,19 @@
 
     .col-md-9
       .row
-        .col-md-4.box-pad-1.rounded-corners
-          = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
-        .col-md-4.box-pad-1.rounded-corners
-          = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
-        .col-md-4.box-pad-1.rounded-corners
-          = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
+        / .col-md-4.box-pad-1.rounded-corners
+        /   = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
+        / .col-md-4.box-pad-1.rounded-corners
+        /   = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
+        / .col-md-4.box-pad-1.rounded-corners
+        /   = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
         - if @photos
           - @photos.each do |photo|
-            .col-md-4.box-pad-1.rounded-corners
-              = photo.location
-              = image_tag(photo.images.thumbnail.url, class: "rounded-corners")
+            
+            / = photo.location
+            a.col-md-3.box-pad-1.rounded-corners data-gallery="multiimages" data-title=("") data-toggle="lightbox" href=(photo.images.standard_resolution.url) 
+              img.img-responsive.rounded-corners src=(photo.images.standard_resolution.url)
+
   / .row
   /   .col-md-8 
   /     - if current_user.likes.where(liked_user: @user).count < 1 && current_user != @user

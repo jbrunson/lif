@@ -1,12 +1,28 @@
 .container.padding-top-7
   .row
     .col-md-6.box-pad-1.hidden-sm.hidden-xs
-      - if @photos 
-        .col-md-12
-          - @photos.each do |photo|
-            = photo.location
-            .col-md-3.box-pad-1
-              = image_tag(photo.images.thumbnail.url)
+      - if @photos
+        #carousel-example-generic.carousel.slide data-ride="carousel" data-interval="false" 
+          /! Indicators
+          ol.carousel-indicators
+            - @photos.each_with_index do |photo, idx|
+              li class=(idx == 0 ? "active" : "") data-slide-to=("#{idx}") data-target="#carousel-example-generic" 
+          /! Wrapper for slides
+          .carousel-inner
+            - if @photos 
+              - @photos.each_with_index do |photo, idx|
+                div class=(idx == 0 ? "item active rounded-corners" : "item rounded-corners")
+                  = image_tag(photo.images.standard_resolution.url, class: "rounded-corners max-w-100 box-shadow-1")
+          /! Controls
+          a.left.carousel-control data-slide="prev" href="#carousel-example-generic" role="button" 
+            span.glyphicon.glyphicon-chevron-left
+          a.right.carousel-control data-slide="next" href="#carousel-example-generic" role="button" 
+            span.glyphicon.glyphicon-chevron-right
+        / - if @photos 
+        /   .col-md-12
+        /     - @photos.each do |photo|
+        /       .col-md-3.box-pad-1
+        /         = image_tag(photo.images.standard_resolution.url, class: "max-w-100")
     .col-md-6
       .row
         .col-md-12.box-pad-1
@@ -33,6 +49,3 @@
     =current_match.conversation.secure_identifier
   #current-user-id.hide
     =current_user.id
-
-
-  

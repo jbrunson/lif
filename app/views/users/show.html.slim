@@ -55,6 +55,9 @@
             - else
               .btn.btn-default.upcase.btn-blue.center-abs Liked
 
+          =link_to "Sign in with Instagram", user_omniauth_authorize_path(provider: "instagram")
+
+
 
     / - @matches.each do |match|
     /     .col-md-3.box-pad-1

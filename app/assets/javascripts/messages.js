@@ -76,3 +76,8 @@ $(window).resize(function() {
 });
 
 $(window).trigger('resize');
+
+$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+}); 

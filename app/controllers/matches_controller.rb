@@ -9,7 +9,7 @@ class MatchesController < ApplicationController
   def show
     @message = Message.new
     @history = Message.for_match(current_match)
-    @photos = instagram_photos_for(current_match.matched_user) if current_match.matched_user.identities.any? { |identity| identity.provider == "instagram"  }
+    @photos = instagram_photos_for(current_match.matched_user).take(5) if current_match.matched_user.identities.any? { |identity| identity.provider == "instagram"  }
   end
 
 
