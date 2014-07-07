@@ -10,7 +10,7 @@
     .col-md-6
       .row
         .col-md-12.box-pad-1
-          .box-style.box-shadow-1.bg-white.rounded-corners.min-h-29.relative.pad-bottom-1
+          .box-style.box-shadow-1.bg-white.rounded-corners.min-h-29.relative.pad-bottom-1.overflow-scroll
             .message-history.box-pad-1
               - @history.each do |message|
                 .row
@@ -23,10 +23,10 @@
         .col-md-12
           = simple_form_for [@current_user, @match, @message], remote: true do |f|
             = f.hidden_field :recipient_id, :value => @matched_user.id
-            .row
-              .col-md-10
+            .row.chat-interface
+              .col-md-10.col-xs-9
                 = f.text_area :body, class: "form-control"
-              .col-md-2  
+              .col-md-2.col-xs-3
                 = f.submit 'Send', class: "btn btn-default right upcase btn-blue"
 
   #conversation-id.hide
