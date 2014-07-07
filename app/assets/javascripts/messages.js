@@ -72,7 +72,7 @@ $(function() {
 $(window).resize(function() {
   var headerHeight = $('.navbar-default').height();
   var chatUIHeight = $('.chat-interface').height();
-  $('.min-h-29').height($(window).height() - (headerHeight + chatUIHeight + 60));
+  $('.chat-container').height($(window).height() - (headerHeight + chatUIHeight + 60));
 });
 
 $(window).trigger('resize');
