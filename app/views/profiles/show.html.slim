@@ -54,14 +54,23 @@
           .col-xs-4
             .center-icon
               i.fa.fa-google-plus-square.fa-2x.blue-gray.center
+
+    .col-md-9.box-pad-1
+      .box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
+        .row.box-pad-1
+          .col-md-9.box-pad-1
+            p Hey I'm going on a trip to Vancouver, BC and would love to meet some other outdoorsy people to hang out with while I'm there. 
+          .col-md-3.box-pad-1
+
+
     .col-md-9
       .row
         .col-md-4.box-pad-1.rounded-corners
-          = image_tag("placeholders/placeholder.jpg", class: "rounded-corners")
+          = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
         .col-md-4.box-pad-1.rounded-corners
-          = image_tag("placeholders/placeholder.jpg", class: "rounded-corners")
+          = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
         .col-md-4.box-pad-1.rounded-corners
-          = image_tag("placeholders/placeholder.jpg", class: "rounded-corners")
+          = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
         - if @photos
           - @photos.each do |photo|
             .col-md-4.box-pad-1.rounded-corners

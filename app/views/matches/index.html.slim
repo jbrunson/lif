@@ -11,7 +11,12 @@
               .row.box-pad-p5
                 .col-md-10
                   h2.blue-gray = match.matched_user.name
-              .row
+              .row.center-on-xs
                 .col-md-10
                   - if Message.for_match(match).count > 0
                     time = time_ago_in_words(Message.for_match(match).order("created_at DESC").limit(1).first.created_at) + " ago"
+            .col-md-1.mar-top-2-p5
+              .row.center
+                = link_to 'Chat', match_path(match), class: "btn btn-default upcase btn-blue"
+                
+                        

@@ -1,21 +1,80 @@
 .container.padding-top-7
   .row
-    .col-md-8 
-      h1 = @activity.location
-      table
-        tbody
-          - @possible_matches.each do |match|
-            tr
-              td
-                = link_to(profile_path(match))
-                  = match.name
-              td = image_tag(match.pic, class: "profile-photo")
+    h1 = @activity.location
+    - @possible_matches.each do |match|
+          .col-md-3.box-pad-1
+            .box-style.box-shadow-1.bg-white.rounded-corners.min-h-29.relative.pad-bottom-1
+              a.dislike-user 
+                i.fa.fa-times.light-gray.visible-on-hover
+              = link_to profile_path(match), class: "white no-dec-link margin-b-1"
 
-          - @nearby_users.each do |user|
-            tr
-              td
-                = link_to(profile_path(user))
-                  = user.name
-              td = image_tag(user.pic, class: "profile-photo")
+                .avatar.margin-b-1
+                  = image_tag(match.pic)
+              .m-bottom-1
+                = link_to profile_path(match), class: "blue-gray no-dec-link center block"
+                    h2.profile-list-name
+                      = match.name
+              .m-bottom-1
+                p.blue-gray.center This is some placeholder text related to the user: interests, occupation, time in city...
+              .m-bottom-2.center.bottom.w-100
+                - if current_user.likes.where(liked_user: match).count < 1 && current_user != match
+                  = button_to 'Like', user_likes_path(match), remote: true, class: "btn btn-default upcase btn-blue center-abs like-button"
+                - else
+                  .btn.btn-default.upcase.btn-blue.center-abs Liked
 
+
+
+
+
+
+
+/ .container.padding-top-7
+/   - @matches.each do |match|
+/     .row
+/       .col-md-12.box-pad-1
+/         .box-style.box-shadow-1.bg-white.rounded-corners.relative
+/           = link_to profile_path(match.matched_user), class: "no-dec-link"
+
+/             .col-md-2.avatar.margin-b-1
+/               = image_tag(match.matched_user.pic, class: "m-bottom-1 left")
+/             .col-md-9
+/               .row.box-pad-p5
+/                 .col-md-10
+/                   h2.blue-gray = match.matched_user.name
+/               .row.center-on-xs
+/                 .col-md-10
+/                   - if Message.for_match(match).count > 0
+/                     time = time_ago_in_words(Message.for_match(match).order("created_at DESC").limit(1).first.created_at) + " ago"
+/             .col-md-1.mar-top-2-p5
+/               .row.center
+/                 = link_to 'Chat', match_path(match), class: "btn btn-default upcase btn-blue"
+
+
+
+
+
+
+
+
+
+
+/               .container.padding-top-7
+/   .row
+/     .col-md-8 
+/       h1 = @activity.location
+/       table
+/         tbody
+/           - @possible_matches.each do |match|
+/             tr
+/               td
+/                 = link_to(profile_path(match))
+/                   = match.name
+/               td = image_tag(match.pic, class: "profile-photo")
+
+/           - @nearby_users.each do |user|
+/             tr
+/               td
+/                 = link_to(profile_path(user))
+/                   = user.name
+/               td = image_tag(user.pic, class: "profile-photo")
           

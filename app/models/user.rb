@@ -32,6 +32,9 @@ class User < ActiveRecord::Base
 
   # end
 
+  scope :excluding_user, ->(user) { where("id <> ? ", user.id)}
+  scope :with_overlapping_activity, ->(activity) { joins(:activity).merge(Activity.overlapping?(activity)) }
+
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # Get the identity and user if they exist

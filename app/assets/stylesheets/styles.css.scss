@@ -356,3 +356,13 @@ h2.profile-list-name {
   margin-top: -20px;
   padding-right: 9px;
 }
+
+.mar-top-2-p5 {
+  margin-top: 2.5em;
+}
+
+@media (max-width: 480px){
+  .center-on-xs{
+    text-align: center;
+  }
+}

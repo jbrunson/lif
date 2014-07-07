@@ -48,14 +48,18 @@ class ActivitiesController < ActionController::Base
     #   activity.overlaps?(@activity)
     # end
 
-    users = User.all.select do |user|
+    users = User.excluding_user(current_user).select do |user|
       user.activities.any? do |act|
         act.overlaps?(@activity) 
       end
     end
 
-    @possible_matches = users.reject{ |user| user == current_user }
-    @nearby_users = nearby_users_from_location(current_activity).limit(10)
+
+
+    @possible_matches = users
+    @nearby_users = nearby_users_from_location(current_activity).limit(20)
+    @possible_matches = @possible_matches.concat(@nearby_users)
+
   end
 
   def current_activity
