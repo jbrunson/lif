@@ -1,6 +1,4 @@
-  module UserHelpers 
-
-
+module UserHelpers 
 
   def ensure_signup_complete
     # Ensure we don't go into an infinite loop
