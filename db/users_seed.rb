@@ -36,12 +36,11 @@ end
 
 # vancouver_ip_address = "64.114.24.114"
 # photos_of_men = [
-# "http://s29.postimg.org/y39ot3co7/image.jpg",
-# "http://s29.postimg.org/77zne6von/image.jpg",
-# "http://s29.postimg.org/vzz9lfcvb/image.jpg",
-# "http://s29.postimg.org/3qxlb7wmf/image.jpg",
-# "http://s29.postimg.org/4hqbgzyzr/image.jpg",
-# "http://s29.postimg.org/6wi71ff8n/image.jpg"
+# "http://s30.postimg.org/6z8juv11t/image.jpg",
+# "http://s30.postimg.org/nx7kgpafl/image.jpg",
+# "http://s30.postimg.org/aubxxfk7l/image.jpg",
+# "http://s30.postimg.org/bz602t6oh/image.jpg",
+# "http://s30.postimg.org/4kgoafksx/image.jpg"
 # ]
 
 # User.all.each do |user|
