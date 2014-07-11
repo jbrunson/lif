@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
    :match_exists?,
    :message_time_format,
    :instagram_photos,
-   :nearby_users_from_ip
+   :nearby_users_from_ip,
+   :instagram_user_info_for
 
    def ensure_signup_complete
     # Ensure we don't go into an infinite loop
@@ -56,6 +57,13 @@ class ApplicationController < ActionController::Base
     token = user.identities.where(provider: "instagram").first.token
     client = Instagram.client(:access_token => token)
     client.user_recent_media
+  end
+  
+  def instagram_user_info_for(user)
+    ident = user.identities.where(provider: "instagram").first
+    token = ident.token
+    client = Instagram.client(:access_token => token)
+    client.user(ident.uid)
   end
 
   def nearby_users_from_ip

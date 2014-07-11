@@ -10,20 +10,32 @@ $(function() {
         var message = $('<div></div>').addClass('row');
         console.log(message);
         var div = $('<div></div>');
+
+        var right = $('<div></div>');
+        right.addClass('right');
+
         var par = $('<p></p>');
         par.text(data.message_body);
+        
         console.log(div);
+        
         var pic = $('<img>');
         pic.attr('src', data.pic);
+        pic.addClass('navbar-profile-photo');
+        console.log(pic);
+        
         var time = $('<time></time>');
         time.addClass('small pad-right-1');
-        time.text(data.created_at);
-        if ($('#current-user-id').text() === data.user_id) {
+        // time.text(data.created_at);
+        if ($('#current-user-id').text() === data.user_id.toString()) {
           div.addClass('my-message rounded-corners');
         } else {
           div.addClass('their-message rounded-corners');
         }
+        right.append(time);
+        right.append(pic);
         div.append(par);
+        div.append(right);
         message.append(div);
         console.log(message);
         $('.message-history').append(message);
@@ -81,3 +93,7 @@ $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
     event.preventDefault();
     $(this).ekkoLightbox();
 }); 
+
+$('#new_message').on('ajax:success', function(event, data, status, xhr) {
+  $('.message-textbox').val(""); 
+});

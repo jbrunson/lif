@@ -41,9 +41,9 @@
             = f.hidden_field :recipient_id, :value => @matched_user.id
             .row.chat-interface
               .col-md-10.col-xs-9
-                = f.text_area :body, class: "form-control"
+                = f.text_area :body, class: "form-control message-textbox"
               .col-md-2.col-xs-3
-                = f.submit 'Send', class: "btn btn-default right upcase btn-blue"
+                = f.submit 'Send', class: "btn btn-default right upcase btn-blue send-message"
 
   #conversation-id.hide
     =current_match.conversation.secure_identifier

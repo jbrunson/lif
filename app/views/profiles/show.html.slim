@@ -48,9 +48,10 @@
       .box-pad-1.box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
         .row
           .col-xs-4
-            .center-icon
-              = link_to("http://instagram.com/nicole_espo")
-                i.fa.fa-instagram.fa-2x.blue-gray.center
+            -if @instagram_info
+              .center-icon
+                = link_to("http://instagram.com/#{@instagram_info.username}")
+                  i.fa.fa-instagram.fa-2x.blue-gray.center
           .col-xs-4
             .center-icon
               i.fa.fa-facebook.fa-2x.blue-gray.center

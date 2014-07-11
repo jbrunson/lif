@@ -34,17 +34,18 @@ end
 # "http://s16.postimg.org/98iaojmk5/image.jpg",
 # ]
 
-# vancouver_ip_address = "64.114.24.114"
-# photos_of_men = [
-# "http://s30.postimg.org/6z8juv11t/image.jpg",
-# "http://s30.postimg.org/nx7kgpafl/image.jpg",
-# "http://s30.postimg.org/aubxxfk7l/image.jpg",
-# "http://s30.postimg.org/bz602t6oh/image.jpg",
-# "http://s30.postimg.org/4kgoafksx/image.jpg"
-# ]
+vancouver_ip_address = "64.114.24.114"
+photos_of_men = [
+"http://s30.postimg.org/6z8juv11t/image.jpg",
+"http://s30.postimg.org/nx7kgpafl/image.jpg",
+"http://s30.postimg.org/aubxxfk7l/image.jpg",
+"http://s30.postimg.org/bz602t6oh/image.jpg",
+"http://s30.postimg.org/4kgoafksx/image.jpg"
+]
 
-# User.all.each do |user|
-#   if user.gender == "male"
-#     user.pic = photos_of_men.sample unless user.id == 98 || user.id == 99
-#   end
-# end
+User.all.each do |user|
+  if user.gender == "male"
+    user.pic = photos_of_men.sample unless user.id == 98 || user.id == 99
+    user.save
+  end
+end
