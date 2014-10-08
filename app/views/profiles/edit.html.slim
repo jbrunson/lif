@@ -18,33 +18,11 @@
                 li.divider
                 li
                   a href="#"  Separated link
-        = image_tag(@user.pic, class: "profile-photo")
-        h2.blue-gray.center = @user.name
+        = image_tag(current_user.pic, class: "profile-photo")
+        h2.blue-gray.center = current_user.name
         .m-bottom-2.center.bottom.w-100
-          - if current_user.likes.where(liked_user: @user).count < 1 && current_user != @user
-            = button_to 'Like', user_likes_path(@user), remote: true, class: "btn btn-default upcase btn-blue center-abs"
-          - elsif match_exists?(current_user, @user)
-            = link_to 'Chat', match_path(match_exists?(current_user, @user)), class: "btn btn-default upcase btn-blue center-abs"
-          - else
-            .btn.btn-default.upcase.btn-blue.center-abs Liked
+          
 
-            / .btn-group
-            /   a.btn.btn-default.dropdown-toggle data-toggle="dropdown"
-            /     span
-            /       i.fa.fa-chevron-down
-            /   ul.dropdown-menu role="menu" 
-            /     li
-            /       a href="#"  Action
-            /     li
-            /       a href="#"  Another action
-            /     li
-            /       a href="#"  Something else here
-            /     li.divider
-            /     li
-            /       a href="#"  Separated link
-      / .box-pad-1.box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
-      /   .row
-      /     .btn.btn-default.upcase.btn-blue.center-abs Chat
       .box-pad-1.box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
         .row
           .col-xs-4
@@ -63,8 +41,12 @@
       .box-shadow-1.bg-white.rounded-corners.relative.pad-bottom-1
         .row.box-pad-1
           .col-md-9.box-pad-1
-            p 
-              = @profile.about_me 
+            p Hey there I'm going on a trip to Vancouver, BC and would love to meet some other outdoorsy people to hang out with while I'm there. 
+
+            = simple_form_for @profile do |f| 
+              = f.input :about_me
+              = f.button :submit 
+             
           .col-md-3.box-pad-1
 
 
@@ -76,6 +58,8 @@
         /   = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
         / .col-md-4.box-pad-1.rounded-corners
         /   = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
+        / = button_to 'Upload Photos'
+
         - if @photos
           - @photos.each do |photo|
             

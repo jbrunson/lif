@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :matches
   has_many :liked_users, :through => :likes
   has_many :identities
+  belongs_to :profile
   geocoded_by :current_sign_in_ip,
     :latitude => :last_latitude, :longitude => :last_longitude
   # after_validation :geocode

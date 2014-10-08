@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'profiles/:id', to: 'profiles#show'
+  # get 'profiles/:id', to: 'profiles#show'
 
   get "/pages/*id" => 'pages#show', as: :page, format: false
 
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get 'profile', to: :show
   end
 
-  resources :profiles, only: [:show]
+  resources :profiles, except: [:destroy]
 
 
 
