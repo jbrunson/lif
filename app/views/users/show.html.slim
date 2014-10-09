@@ -39,12 +39,12 @@
         .box-style.box-shadow-1.bg-white.rounded-corners.min-h-29.relative.pad-bottom-1
           a.dislike-user 
             i.fa.fa-times.light-gray.visible-on-hover
-          = link_to profile_path(user), class: "white no-dec-link margin-b-1"
+          = link_to profile_path(user.profile), class: "white no-dec-link margin-b-1"
 
             .avatar.margin-b-1
               = image_tag(user.pic)
           .m-bottom-1
-            = link_to profile_path(user), class: "blue-gray no-dec-link center block"
+            = link_to profile_path(user.profile), class: "blue-gray no-dec-link center block"
                 h2.profile-list-name
                   = user.name
           .m-bottom-1

@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe ".create" do
+    it "generates its own profile object" do
+      expect(User.create(email: "davidkovsky@gmail.com", password: "password22").profile).to be_valid
+    end
+  end
 end

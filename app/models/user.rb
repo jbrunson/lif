@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   has_many :matches
   has_many :liked_users, :through => :likes
   has_many :identities
+  has_many :alerts
   belongs_to :profile
+  after_create :create_profile
   geocoded_by :current_sign_in_ip,
     :latitude => :last_latitude, :longitude => :last_longitude
   # after_validation :geocode
@@ -71,6 +73,11 @@ class User < ActiveRecord::Base
         # user.skip_confirmation!
         user.save!
       end
+    end
+
+    def create_profile
+      profile = Profile.create if profile.nil?
+      self.save
     end
 
     # Associate the identity with the user if needed
