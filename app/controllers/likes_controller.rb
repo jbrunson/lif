@@ -3,8 +3,7 @@ class LikesController < ApplicationController
   def new
     @like = Like.new
   end
-
-
+  
   def create
     liked_user = User.find(params[:user_id])
     @like = current_user.likes.build(liked_user: liked_user)

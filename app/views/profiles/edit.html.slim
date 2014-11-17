@@ -52,13 +52,7 @@
 
     .col-md-9
       .row
-        / .col-md-4.box-pad-1.rounded-corners
-        /   = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
-        / .col-md-4.box-pad-1.rounded-corners
-        /   = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
-        / .col-md-4.box-pad-1.rounded-corners
-        /   = image_tag("placeholders/placeholder.jpg", class: "rounded-corners max-w-100")
-        / = button_to 'Upload Photos'
+        
 
         - if @photos
           - @photos.each do |photo|
@@ -67,16 +61,3 @@
             a.col-md-3.box-pad-1.rounded-corners data-gallery="multiimages" data-title=("") data-toggle="lightbox" href=(photo.images.standard_resolution.url) 
               img.img-responsive.rounded-corners src=(photo.images.standard_resolution.url)
 
-  / .row
-  /   .col-md-8 
-  /     - if current_user.likes.where(liked_user: @user).count < 1 && current_user != @user
-  /       = button_to 'like', user_likes_path(@user), remote: true, class: "btn btn-default"
-  /     - if @match
-  /       = link_to "Send message", match_path(@match)
-
-  / .row
-  /   .col-md-8
-  /     ul
-  /       - @user.activities.each do |activity|
-  /         li
-  /           = activity.location

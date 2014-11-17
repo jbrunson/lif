@@ -23,9 +23,7 @@ class Identity < ActiveRecord::Base
 
       self.token     = refreshhash['access_token']
       self.token_expires_at = DateTime.now + refreshhash["expires_in"].to_i.seconds
-
       self.save
-
     end
   end
 
@@ -37,5 +35,4 @@ class Identity < ActiveRecord::Base
     save if changed?
     false # token not expired. :D
   end
-
 end

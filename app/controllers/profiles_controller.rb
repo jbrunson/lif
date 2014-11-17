@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   def show
-    @profile = Profile.find(params[:id])
+    @profile = find_profile
     @user = @profile.user
     @photos = instagram_photos_for(@user) if @user.identities.any? { |identity| identity.provider == "instagram"  }
     @instagram_info = instagram_user_info_for(@user) if @user.identities.any? { |identity| identity.provider == "instagram"  }
@@ -13,14 +13,13 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:id])
+    @profile = find_profile
   end
 
   def update
-    profile = Profile.find(params[:id])
+    profile = find_profile
     profile.update!(profile_params)
     redirect_to profile
-
   end
 
   private
@@ -29,7 +28,9 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(:about_me)
   end
 
-
+  def find_profile
+    Profile.find(params[:id])
+  end
 end
  
 

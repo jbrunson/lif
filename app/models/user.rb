@@ -12,11 +12,6 @@ class User < ActiveRecord::Base
   # after_validation :geocode
   before_validation :geocode, if: :current_sign_in_ip_changed?
 
-  # has_many :matched_users, :through => :matches
-  # has_many :inverse_matches, :class_name => "Match", :foreign_key => "matched_user_id"
-  # has_many :inverse_matched_users, :through => :inverse_matches, :source => :user
-
-
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
 
@@ -26,14 +21,6 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
-
-  # def all_matches
-  #   self.matches.merge(self.inverse_matched_users)
-  # end
-  # scope :interested_in,     ->(user) { where("gender = ", user.interested_in, user.id)}
-  # def inverse_matches
-
-  # end
 
   scope :excluding_user, ->(user) { where("id <> ? ", user.id)}
   scope :with_overlapping_activity, ->(activity) { joins(:activity).merge(Activity.overlapping?(activity)) }
@@ -45,14 +32,11 @@ class User < ActiveRecord::Base
 
     # If a signed_in_resource is provided it always overrides the existing user
     # to prevent the identity being locked with accidentally created accounts.
-    # Note that this may leave zombie accounts (with no associated identity) which
-    # can be cleaned up at a later date.
+    
     user = signed_in_resource ? signed_in_resource : identity.user
 
     # Create the user if needed
     if user.nil?
-
-      # Get the existing user by email if the provider gives us a verified email.
       # If no verified email was provided we assign a temporary email and ask the
       # user to verify it on the next step via UsersController.finish_signup
       email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)

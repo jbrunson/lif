@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
    def ensure_signup_complete
     # Ensure we don't go into an infinite loop
     return if action_name == 'finish_signup'
-
     # Redirect to the 'finish_signup' page if the user
     # email hasn't been verified yet
     if current_user && !current_user.email_verified?
@@ -83,22 +82,7 @@ class ApplicationController < ActionController::Base
     users
   end
 
-  # def nearby_users_from_ip
-  #   result = request.location
-  #   if result
-  #     activities = Activity.near([result.latitude, result.longitude], 50)
-  #   else
-  #     #vancouver
-  #     lat = 49.2500
-  #     lon = 123.1000
-  #     activities = Activity.near([lat, lon], 50).includes(:user).on_now
-  #   end
-
-  #   users = activities.map(&:user)
-  # end
-
   def mutual_likes?(user1, user2)
     Like.where( user_id: user1.id, liked_user: user2.id ).size > 0
   end
-
 end

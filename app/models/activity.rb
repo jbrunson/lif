@@ -7,7 +7,6 @@ class Activity < ActiveRecord::Base
   # after_validation :geocode
   reverse_geocoded_by :latitude, :longitude
 
-
   geocoded_by :location do |obj, results|
     if geo = results.first
       obj.latitude = geo.latitude
@@ -24,7 +23,6 @@ class Activity < ActiveRecord::Base
 
   scope :on_now, -> { where("(arrival_date < ? AND departure_date > ?)", DateTime.now, DateTime.now )}
 
-  # Check if a given interval overlaps this interval    
   def overlaps?(other)
     (arrival_date - other.departure_date) * (other.arrival_date - departure_date) >= 0
   end
@@ -35,6 +33,4 @@ class Activity < ActiveRecord::Base
   }}
 
   scope :current_and_future, -> { where("(departure_date > ?)", DateTime.now)}
-# scope :user, where(gender: 'female')
-
 end

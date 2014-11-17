@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   # get 'profiles/:id', to: 'profiles#show'
 
   get "/pages/*id" => 'pages#show', as: :page, format: false
-
   # match "/about" => 'pages#show', id: 'about', via[:get]
-
   root to: 'pages#show', id: 'homepage'
 
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
@@ -23,10 +21,6 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, except: [:destroy]
-
-
-
-
 end
 
 

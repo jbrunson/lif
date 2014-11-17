@@ -18,11 +18,7 @@
             span.glyphicon.glyphicon-chevron-left
           a.right.carousel-control data-slide="next" href="#carousel-example-generic" role="button" 
             span.glyphicon.glyphicon-chevron-right
-        / - if @photos 
-        /   .col-md-12
-        /     - @photos.each do |photo|
-        /       .col-md-3.box-pad-1
-        /         = image_tag(photo.images.standard_resolution.url, class: "max-w-100")
+        
     .col-md-6
       .row
         .col-md-12.box-pad-1
